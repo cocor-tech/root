@@ -101,16 +101,9 @@ export function Header() {
         }`}
         style={{ transition: "transform 0.3s cubic-bezier(0.4, 0, 0.2, 1)" }}
       >
-        {/* Close area */}
-        <div className="h-16 flex items-center justify-end px-6 border-b border-[#1a1a1a]">
-          <button
-            onClick={() => setMenuOpen(false)}
-            className="text-[#707070] hover:text-white"
-            style={{ transition: "color 0.15s ease" }}
-            aria-label="Close"
-          >
-            <X size={18} />
-          </button>
+        {/* Brand header */}
+        <div className="h-16 flex items-center px-6 border-b border-[#1a1a1a]">
+          <span className="text-white text-xs uppercase tracking-[0.25em] font-light">Menu</span>
         </div>
 
         {/* Nav links */}
