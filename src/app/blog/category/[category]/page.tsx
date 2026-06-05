@@ -30,20 +30,20 @@ export default async function BlogCategoryPage({ params }: { params: Promise<{ c
     <PublicLayout>
       <div className="min-h-screen pt-32 pb-24">
         <div className="max-w-4xl mx-auto px-6">
-          <p className="text-[#555] text-[10px] uppercase tracking-[0.2em] mb-4">/ Blog / {category}</p>
-          <h1 className="text-5xl md:text-6xl font-black text-white mb-2 capitalize">{category}</h1>
-          <p className="text-[#888] text-sm max-w-lg mb-12">Articles about {category} from Cocor Tech.</p>
+          <p className="text-muted text-[10px] uppercase tracking-[0.2em] mb-4">/ Blog / {category}</p>
+          <h1 className="text-5xl md:text-6xl font-black text-primary mb-2 capitalize">{category}</h1>
+          <p className="text-secondary text-sm max-w-lg mb-12">Articles about {category} from Cocor Tech.</p>
 
           <div className="space-y-4">
             {posts.map((post) => (
-              <article key={post.slug} className="border border-[#1a1a1a] bg-[#0a0a0a] p-6 hover:border-[#333] transition-colors">
-                <div className="flex items-center gap-3 text-[10px] text-[#555] uppercase tracking-[0.15em] mb-2">
+              <article key={post.slug} className="border border-default bg-surface p-6 hover:border-strong transition-colors">
+                <div className="flex items-center gap-3 text-[10px] text-muted uppercase tracking-[0.15em] mb-2">
                   {post.published && <span>{post.published}</span>}
                 </div>
                 <Link href={`/blog/${category}/${post.slug}`}>
-                  <h2 className="text-white font-semibold text-lg hover:text-[#888] transition-colors">{post.title}</h2>
+                  <h2 className="text-primary font-semibold text-lg hover:text-secondary transition-colors">{post.title}</h2>
                 </Link>
-                <p className="text-[#888] text-sm mt-2">{post.description}</p>
+                <p className="text-secondary text-sm mt-2">{post.description}</p>
               </article>
             ))}
           </div>

@@ -22,13 +22,13 @@ export default function FAQPage() {
     <PublicLayout>
       <div className="min-h-screen pt-32 pb-24">
         <div className="max-w-3xl mx-auto px-6">
-          <p className="text-[#555] text-[10px] uppercase tracking-[0.2em] mb-4">/ Products / Moistello / FAQ</p>
-          <h1 className="text-4xl md:text-5xl font-black text-white mb-8">FAQ</h1>
+          <p className="text-muted text-[10px] uppercase tracking-[0.2em] mb-4">/ Products / Moistello / FAQ</p>
+          <h1 className="text-4xl md:text-5xl font-black text-primary mb-8">FAQ</h1>
           <div className="space-y-4">
             {faqs.map((item) => (
-              <div key={item.q} className="border border-[#1a1a1a] bg-[#0a0a0a] p-6">
-                <h3 className="text-white font-semibold mb-2">{item.q}</h3>
-                <p className="text-[#888] text-sm leading-relaxed">{item.a}</p>
+              <div key={item.q} className="border border-default bg-surface p-6">
+                <h3 className="text-primary font-semibold mb-2">{item.q}</h3>
+                <p className="text-secondary text-sm leading-relaxed">{item.a}</p>
               </div>
             ))}
           </div>

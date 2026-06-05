@@ -21,13 +21,13 @@ export default function FeaturesPage() {
     <PublicLayout>
       <div className="min-h-screen pt-32 pb-24">
         <div className="max-w-3xl mx-auto px-6">
-          <p className="text-[#555] text-[10px] uppercase tracking-[0.2em] mb-4">/ Products / Moistello / Features</p>
-          <h1 className="text-4xl md:text-5xl font-black text-white mb-8">Features</h1>
-          <div className="grid md:grid-cols-2 gap-px bg-[#1a1a1a]">
+          <p className="text-muted text-[10px] uppercase tracking-[0.2em] mb-4">/ Products / Moistello / Features</p>
+          <h1 className="text-4xl md:text-5xl font-black text-primary mb-8">Features</h1>
+          <div className="grid md:grid-cols-2 gap-px bg-grid">
             {features.map((f) => (
-              <div key={f.label} className="bg-[#0a0a0a] p-6">
-                <h3 className="text-white text-sm font-semibold uppercase tracking-[0.1em] mb-2">{f.label}</h3>
-                <p className="text-[#888] text-sm">{f.value}</p>
+              <div key={f.label} className="bg-surface p-6">
+                <h3 className="text-primary text-sm font-semibold uppercase tracking-[0.1em] mb-2">{f.label}</h3>
+                <p className="text-secondary text-sm">{f.value}</p>
               </div>
             ))}
           </div>

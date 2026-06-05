@@ -238,8 +238,8 @@ export default function AdminDashboard() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-[#000000] flex items-center justify-center">
-        <p className="text-[#555] text-xs uppercase tracking-[0.15em]">Loading...</p>
+      <div className="min-h-screen bg-bg-main flex items-center justify-center">
+        <p className="text-muted text-xs uppercase tracking-[0.15em]">Loading...</p>
       </div>
     )
   }
@@ -249,30 +249,30 @@ export default function AdminDashboard() {
   const sectionKeys = Object.keys(sections).sort()
 
   return (
-    <div className="min-h-screen bg-[#000000]">
+    <div className="min-h-screen bg-bg-main">
       <div className="max-w-7xl mx-auto px-6 py-8">
         <div className="flex items-center justify-between mb-8">
-          <h1 className="text-white text-xl font-bold">Admin — Content</h1>
+          <h1 className="text-primary text-xl font-bold">Admin — Content</h1>
           <button
             onClick={handleLogout}
-            className="text-[#555] text-xs uppercase tracking-[0.15em] hover:text-white transition-colors"
+            className="text-muted text-xs uppercase tracking-[0.15em] hover:text-primary transition-colors"
           >
             Sign Out
           </button>
         </div>
 
-        <div className="border border-[#333] bg-[#0a0a0a] px-4 py-2 mb-6 flex items-center justify-between">
-          <p className="text-[#555] text-[10px] uppercase tracking-[0.2em]">
+        <div className="border border-strong bg-surface px-4 py-2 mb-6 flex items-center justify-between">
+          <p className="text-muted text-[10px] uppercase tracking-[0.2em]">
             {isLocal ? "● Local filesystem mode" : "● GitHub API mode (Vercel)"}
           </p>
-          <a href="/" className="text-[#555] text-[10px] uppercase tracking-[0.15em] hover:text-white transition-colors">
+          <a href="/" className="text-muted text-[10px] uppercase tracking-[0.15em] hover:text-primary transition-colors">
             View Site →
           </a>
         </div>
 
         {message && (
-          <div className="border border-[#333] bg-[#0a0a0a] px-4 py-2 mb-6">
-            <p className="text-[#888] text-sm">{message}</p>
+          <div className="border border-strong bg-surface px-4 py-2 mb-6">
+            <p className="text-secondary text-sm">{message}</p>
           </div>
         )}
 
@@ -280,11 +280,11 @@ export default function AdminDashboard() {
           {/* Sidebar */}
           <div className="lg:col-span-1 space-y-6">
             <div>
-              <h2 className="text-white text-xs uppercase tracking-[0.15em] font-semibold mb-3">Content</h2>
+              <h2 className="text-primary text-xs uppercase tracking-[0.15em] font-semibold mb-3">Content</h2>
               <div className="space-y-4">
                 {sectionKeys.map((section) => (
                   <div key={section}>
-                    <h3 className="text-[#555] text-[10px] uppercase tracking-[0.2em] mb-2">{section}/</h3>
+                    <h3 className="text-muted text-[10px] uppercase tracking-[0.2em] mb-2">{section}/</h3>
                     <div className="space-y-1">
                       {(sections[section] || []).map((item) => (
                         <div key={item.slug} className="group flex items-center gap-1">
@@ -292,8 +292,8 @@ export default function AdminDashboard() {
                             onClick={() => loadEditor(section, item.slug)}
                             className={`flex-1 text-left px-3 py-2 text-sm transition-colors ${
                               selectedSection === section && selectedSlug === item.slug
-                                ? "bg-white text-black"
-                                : "text-[#888] hover:bg-[#0a0a0a] hover:text-white"
+                                ? "bg-inverse text-inverse"
+                                : "text-secondary hover:bg-surface hover:text-primary"
                             }`}
                           >
                             {item.title}
@@ -301,7 +301,7 @@ export default function AdminDashboard() {
                           </button>
                           <button
                             onClick={() => handleDelete(section, item.slug)}
-                            className="opacity-0 group-hover:opacity-100 text-[#555] text-[10px] px-1 hover:text-red-500 transition-all"
+                            className="opacity-0 group-hover:opacity-100 text-muted text-[10px] px-1 hover:text-red-500 transition-all"
                             title="Delete"
                           >
                             ×
@@ -315,24 +315,24 @@ export default function AdminDashboard() {
             </div>
 
             {/* Create new */}
-            <div className="border-t border-[#1a1a1a] pt-4">
-              <h2 className="text-white text-xs uppercase tracking-[0.15em] font-semibold mb-3">Create New</h2>
+            <div className="border-t border-default pt-4">
+              <h2 className="text-primary text-xs uppercase tracking-[0.15em] font-semibold mb-3">Create New</h2>
               <div className="space-y-2">
                 <input
                   placeholder="Section (e.g. blog/engineering)"
                   value={newSection}
                   onChange={(e) => setNewSection(e.target.value)}
-                  className="w-full bg-[#0a0a0a] border border-[#222] px-3 py-2 text-white text-sm focus:outline-none focus:border-white"
+                  className="w-full bg-surface border border-input px-3 py-2 text-primary text-sm focus:outline-none focus:border-primary"
                 />
                 <input
                   placeholder="Slug (e.g. my-new-post)"
                   value={newSlug}
                   onChange={(e) => setNewSlug(e.target.value)}
-                  className="w-full bg-[#0a0a0a] border border-[#222] px-3 py-2 text-white text-sm focus:outline-none focus:border-white"
+                  className="w-full bg-surface border border-input px-3 py-2 text-primary text-sm focus:outline-none focus:border-primary"
                 />
                 <button
                   onClick={handleCreate}
-                  className="w-full border border-white text-white px-4 py-2 text-xs uppercase tracking-[0.15em] hover:bg-white hover:text-black transition-all"
+                  className="w-full border border-primary text-primary px-4 py-2 text-xs uppercase tracking-[0.15em] hover:bg-inverse hover:text-inverse transition-all"
                 >
                   Create
                 </button>
@@ -340,14 +340,14 @@ export default function AdminDashboard() {
             </div>
 
             {/* Upload .md file */}
-            <div className="border-t border-[#1a1a1a] pt-4">
-              <h2 className="text-white text-xs uppercase tracking-[0.15em] font-semibold mb-3">Upload .md File</h2>
+            <div className="border-t border-default pt-4">
+              <h2 className="text-primary text-xs uppercase tracking-[0.15em] font-semibold mb-3">Upload .md File</h2>
               <div className="space-y-2">
                 <input
                   placeholder="Target section (e.g. blog/engineering)"
                   value={uploadSection}
                   onChange={(e) => setUploadSection(e.target.value)}
-                  className="w-full bg-[#0a0a0a] border border-[#222] px-3 py-2 text-white text-sm focus:outline-none focus:border-white"
+                  className="w-full bg-surface border border-input px-3 py-2 text-primary text-sm focus:outline-none focus:border-primary"
                 />
                 {/* Drag-and-drop zone */}
                 <div
@@ -355,14 +355,14 @@ export default function AdminDashboard() {
                   onDragOver={handleDragOver}
                   onDragLeave={handleDragLeave}
                   className={`border-2 border-dashed p-4 text-center transition-colors cursor-pointer ${
-                    dragOver ? "border-white bg-white/5" : "border-[#333] hover:border-[#555]"
+                    dragOver ? "border-primary bg-inverse/5" : "border-strong hover:border-muted"
                   }`}
                   onClick={() => fileInputRef.current?.click()}
                 >
-                  <p className="text-[#555] text-xs uppercase tracking-[0.15em]">
+                  <p className="text-muted text-xs uppercase tracking-[0.15em]">
                     {dragOver ? "Drop here" : "Drag & drop or click"}
                   </p>
-                  <p className="text-[#555] text-[10px] mt-1">.md files only</p>
+                  <p className="text-muted text-[10px] mt-1">.md files only</p>
                 </div>
                 <input
                   ref={fileInputRef}
@@ -381,39 +381,39 @@ export default function AdminDashboard() {
             {selectedSection && selectedSlug ? (
               <div className="space-y-4">
                 <div className="flex items-center justify-between">
-                  <p className="text-[#555] text-xs font-mono">{selectedSection}/{selectedSlug}.md</p>
+                  <p className="text-muted text-xs font-mono">{selectedSection}/{selectedSlug}.md</p>
                   <button
                     onClick={handleSave}
-                    className="border border-white text-white px-6 py-2 text-xs uppercase tracking-[0.15em] hover:bg-white hover:text-black transition-all"
+                    className="border border-primary text-primary px-6 py-2 text-xs uppercase tracking-[0.15em] hover:bg-inverse hover:text-inverse transition-all"
                   >
                     Save
                   </button>
                 </div>
 
                 <div>
-                  <label className="block text-[#555] text-[10px] uppercase tracking-[0.2em] mb-1">Frontmatter</label>
+                  <label className="block text-muted text-[10px] uppercase tracking-[0.2em] mb-1">Frontmatter</label>
                   <textarea
                     value={editorFrontmatter}
                     onChange={(e) => setEditorFrontmatter(e.target.value)}
                     rows={5}
-                    className="w-full bg-[#0a0a0a] border border-[#222] px-3 py-2 text-white text-sm font-mono focus:outline-none focus:border-white resize-none"
+                    className="w-full bg-surface border border-input px-3 py-2 text-primary text-sm font-mono focus:outline-none focus:border-primary resize-none"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-[#555] text-[10px] uppercase tracking-[0.2em] mb-1">Body (Markdown)</label>
+                  <label className="block text-muted text-[10px] uppercase tracking-[0.2em] mb-1">Body (Markdown)</label>
                   <textarea
                     value={editorBody}
                     onChange={(e) => setEditorBody(e.target.value)}
                     rows={24}
-                    className="w-full bg-[#0a0a0a] border border-[#222] px-3 py-2 text-white text-sm font-mono focus:outline-none focus:border-white resize-none"
+                    className="w-full bg-surface border border-input px-3 py-2 text-primary text-sm font-mono focus:outline-none focus:border-primary resize-none"
                     placeholder="Markdown content..."
                   />
                 </div>
               </div>
             ) : (
-              <div className="border border-[#1a1a1a] bg-[#0a0a0a] p-8 text-center h-48 flex items-center justify-center">
-                <p className="text-[#555] text-xs uppercase tracking-[0.15em]">Select a file to edit</p>
+              <div className="border border-default bg-surface p-8 text-center h-48 flex items-center justify-center">
+                <p className="text-muted text-xs uppercase tracking-[0.15em]">Select a file to edit</p>
               </div>
             )}
           </div>

@@ -29,12 +29,12 @@ export default function AdminLoginPage() {
   }
 
   return (
-    <div className="min-h-screen bg-[#000000] flex items-center justify-center">
+    <div className="min-h-screen bg-bg-main flex items-center justify-center">
       <div className="w-full max-w-sm px-6">
-        <h1 className="text-white text-2xl font-bold mb-6 text-center">Admin</h1>
+        <h1 className="text-primary text-2xl font-bold mb-6 text-center">Admin</h1>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label htmlFor="password" className="block text-[#888] text-xs uppercase tracking-[0.15em] mb-2">
+            <label htmlFor="password" className="block text-secondary text-xs uppercase tracking-[0.15em] mb-2">
               Password
             </label>
             <input
@@ -42,7 +42,7 @@ export default function AdminLoginPage() {
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full bg-[#0a0a0a] border border-[#222] px-4 py-3 text-white text-sm focus:outline-none focus:border-white transition-colors"
+              className="w-full bg-surface border border-input px-4 py-3 text-primary text-sm focus:outline-none focus:border-primary transition-colors"
               autoFocus
             />
           </div>
@@ -50,7 +50,7 @@ export default function AdminLoginPage() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full border border-white text-white px-6 py-3 text-xs uppercase tracking-[0.15em] hover:bg-white hover:text-black transition-all duration-200 disabled:opacity-50"
+            className="w-full border border-primary text-primary px-6 py-3 text-xs uppercase tracking-[0.15em] hover:bg-inverse hover:text-inverse transition-all duration-200 disabled:opacity-50"
           >
             {loading ? "Checking..." : "Sign In"}
           </button>

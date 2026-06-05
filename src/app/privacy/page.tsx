@@ -9,7 +9,7 @@ export default function PrivacyPage() {
   return (
     <PublicLayout>
       <div className="max-w-3xl mx-auto px-4 py-24">
-        {html ? <article dangerouslySetInnerHTML={{ __html: html }} /> : <p className="text-[#888]">Page not found.</p>}
+        {html ? <article dangerouslySetInnerHTML={{ __html: html }} /> : <p className="text-secondary">Page not found.</p>}
       </div>
     </PublicLayout>
   )

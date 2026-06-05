@@ -50,9 +50,9 @@ export function Header() {
           WebkitBackdropFilter: scrolled ? "blur(24px)" : "none",
         }}
       >
-        <div className="border-b border-[#1a1a1a]">
+        <div className="border-b border-default">
           <div className="max-w-[1440px] mx-auto px-8 h-14 flex items-center justify-between">
-            <Link href="/" className="text-white text-xs uppercase tracking-[0.25em] font-light">
+            <Link href="/" className="text-primary text-xs uppercase tracking-[0.25em] font-light">
               Cocor Tech
             </Link>
 
@@ -63,8 +63,8 @@ export function Header() {
                   href={link.href}
                   className={`text-[10px] uppercase tracking-[0.2em] ${
                     isActive(link.href)
-                      ? "text-white"
-                      : "text-[#505050] hover:text-white"
+                      ? "text-primary"
+                      : "text-muted hover:text-primary"
                   }`}
                   style={{ transition: "color 0.15s ease" }}
                 >
@@ -76,7 +76,7 @@ export function Header() {
             <div className="flex items-center gap-4">
               <Link
                 href="/contact"
-                className="text-[10px] uppercase tracking-[0.2em] text-white border border-white px-4 py-1.5 hover:bg-white hover:text-black"
+                className="text-[10px] uppercase tracking-[0.2em] text-primary border border-primary px-4 py-1.5 hover:bg-inverse hover:text-inverse"
                 style={{ transition: "background-color 0.15s ease, color 0.15s ease" }}
               >
                 Start a Project
@@ -90,7 +90,7 @@ export function Header() {
       <div className="mobile-nav fixed right-0 top-1/2 -translate-y-1/2 z-[60] flex flex-col items-center gap-1.5">
         <button
           onClick={() => setMenuOpen(!menuOpen)}
-          className="w-10 h-10 flex items-center justify-center bg-white text-black shadow-lg hover:bg-[#ccc]"
+          className="w-10 h-10 flex items-center justify-center bg-inverse text-inverse shadow-lg hover:bg-[#ccc]"
           style={{ transition: "background-color 0.15s ease" }}
           aria-label={menuOpen ? "Close menu" : "Open menu"}
         >
@@ -98,7 +98,7 @@ export function Header() {
         </button>
         <button
           onClick={toggle}
-          className="w-10 h-10 flex items-center justify-center bg-white/10 text-white/70 shadow-lg hover:bg-white/20"
+          className="w-10 h-10 flex items-center justify-center bg-inverse/10 text-primary/70 shadow-lg hover:bg-inverse/20"
           style={{ transition: "background-color 0.15s ease" }}
           aria-label="Toggle theme"
         >
@@ -108,14 +108,14 @@ export function Header() {
 
       {/* ─── MOBILE SLIDE-OUT MENU ─── */}
       <div
-        className={`mobile-nav fixed top-0 right-0 h-full w-[280px] z-50 bg-black/95 backdrop-blur-xl border-l border-[#1a1a1a] flex flex-col ${
+        className={`mobile-nav fixed top-0 right-0 h-full w-[280px] z-50 bg-bg-main/95 backdrop-blur-xl border-l border-default flex flex-col ${
           menuOpen ? "translate-x-0" : "translate-x-full"
         }`}
         style={{ transition: "transform 0.3s cubic-bezier(0.4, 0, 0.2, 1)" }}
       >
         {/* Brand header */}
-        <div className="h-16 flex items-center px-6 border-b border-[#1a1a1a]">
-          <span className="text-white text-xs uppercase tracking-[0.25em] font-light">Menu</span>
+        <div className="h-16 flex items-center px-6 border-b border-default">
+          <span className="text-primary text-xs uppercase tracking-[0.25em] font-light">Menu</span>
         </div>
 
         {/* Nav links */}
@@ -131,14 +131,14 @@ export function Header() {
                   onClick={() => setMenuOpen(false)}
                   className={`flex items-center gap-3 px-4 py-3 text-sm ${
                     active
-                      ? "bg-white text-black"
-                      : "text-[#707070] hover:text-white hover:bg-[#0a0a0a]"
+                      ? "bg-inverse text-inverse"
+                      : "text-secondary hover:text-primary hover:bg-surface"
                   }`}
                   style={{ transition: "background-color 0.15s ease, color 0.15s ease" }}
                 >
                   <Icon size={14} strokeWidth={1.5} />
                   <span className="flex-1">{link.label}</span>
-                  <ChevronRight size={12} strokeWidth={1} className="text-[#333]" />
+                  <ChevronRight size={12} strokeWidth={1} className="text-subtle" />
                 </Link>
               )
             })}
@@ -148,7 +148,7 @@ export function Header() {
             <Link
               href="/contact"
               onClick={() => setMenuOpen(false)}
-              className="block border border-white text-white text-center py-3 text-xs uppercase tracking-[0.2em] hover:bg-white hover:text-black"
+              className="block border border-primary text-primary text-center py-3 text-xs uppercase tracking-[0.2em] hover:bg-inverse hover:text-inverse"
               style={{ transition: "background-color 0.15s ease, color 0.15s ease" }}
             >
               Start a Project
@@ -157,8 +157,8 @@ export function Header() {
         </nav>
 
         {/* Footer */}
-        <div className="px-6 py-4 border-t border-[#1a1a1a]">
-          <p className="text-[#333] text-[10px] uppercase tracking-[0.15em]">
+        <div className="px-6 py-4 border-t border-default">
+          <p className="text-subtle text-[10px] uppercase tracking-[0.15em]">
             Cocor Tech
           </p>
         </div>
@@ -167,7 +167,7 @@ export function Header() {
       {/* Overlay */}
       {menuOpen && (
         <div
-          className="mobile-nav fixed inset-0 z-40 bg-black/40"
+          className="mobile-nav fixed inset-0 z-40 bg-bg-main/40"
           onClick={() => setMenuOpen(false)}
           style={{ transition: "opacity 0.3s ease" }}
         />

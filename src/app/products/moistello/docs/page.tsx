@@ -21,12 +21,12 @@ export default function MoistelloDocsPage() {
     <PublicLayout>
       <div className="min-h-screen pt-32 pb-24">
         <div className="max-w-3xl mx-auto px-6">
-          <p className="text-[#555] text-[10px] uppercase tracking-[0.2em] mb-4">/ Products / Moistello / Docs</p>
-          <h1 className="text-4xl md:text-5xl font-black text-white mb-4">Documentation</h1>
-          <p className="text-[#888] text-sm mb-8">Full Moistello documentation is hosted at moistello.com/docs.</p>
+          <p className="text-muted text-[10px] uppercase tracking-[0.2em] mb-4">/ Products / Moistello / Docs</p>
+          <h1 className="text-4xl md:text-5xl font-black text-primary mb-4">Documentation</h1>
+          <p className="text-secondary text-sm mb-8">Full Moistello documentation is hosted at moistello.com/docs.</p>
           <div className="space-y-3">
             {links.map((link) => (
-              <a key={link.title} href={link.href} target="_blank" rel="noopener noreferrer" className="block border border-[#1a1a1a] bg-[#0a0a0a] p-4 hover:border-[#333] transition-colors text-white text-sm">
+              <a key={link.title} href={link.href} target="_blank" rel="noopener noreferrer" className="block border border-default bg-surface p-4 hover:border-strong transition-colors text-primary text-sm">
                 {link.title} →
               </a>
             ))}

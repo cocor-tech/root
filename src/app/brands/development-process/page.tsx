@@ -50,25 +50,25 @@ export default function DevProcessPage() {
     <PublicLayout>
       <div className="min-h-screen pt-32 pb-24">
         <div className="max-w-4xl mx-auto px-6">
-          <p className="text-[#555] text-[10px] uppercase tracking-[0.2em] mb-4">/ Brands / Development Process</p>
-          <h1 className="text-5xl md:text-6xl font-black text-white mb-6">Development Process</h1>
-          <p className="text-[#888] text-sm md:text-base max-w-xl mb-12 leading-relaxed">
+          <p className="text-muted text-[10px] uppercase tracking-[0.2em] mb-4">/ Brands / Development Process</p>
+          <h1 className="text-5xl md:text-6xl font-black text-primary mb-6">Development Process</h1>
+          <p className="text-secondary text-sm md:text-base max-w-xl mb-12 leading-relaxed">
             How we transform acquired digital properties into valuable assets.
           </p>
 
-          <div className="space-y-px bg-[#1a1a1a] mb-12">
+          <div className="space-y-px bg-grid mb-12">
             {phases.map((phase) => (
-              <div key={phase.num} className="bg-[#0a0a0a] p-6 md:p-8">
+              <div key={phase.num} className="bg-surface p-6 md:p-8">
                 <div className="flex items-start gap-6">
-                  <span className="text-[#333] text-2xl font-mono shrink-0 w-10">{phase.num}</span>
+                  <span className="text-subtle text-2xl font-mono shrink-0 w-10">{phase.num}</span>
                   <div className="flex-1">
                     <div className="flex items-center justify-between mb-3">
-                      <h3 className="text-white font-semibold">{phase.title}</h3>
-                      <span className="text-[#555] text-xs uppercase tracking-[0.1em] font-mono">{phase.duration}</span>
+                      <h3 className="text-primary font-semibold">{phase.title}</h3>
+                      <span className="text-muted text-xs uppercase tracking-[0.1em] font-mono">{phase.duration}</span>
                     </div>
                     <ul className="space-y-1">
                       {phase.tasks.map((task) => (
-                        <li key={task} className="text-[#888] text-sm">— {task}</li>
+                        <li key={task} className="text-secondary text-sm">— {task}</li>
                       ))}
                     </ul>
                   </div>

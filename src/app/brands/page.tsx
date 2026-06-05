@@ -20,18 +20,18 @@ export default function BrandsPage() {
       {/* Mobile */}
       <div className="block md:hidden min-h-screen pt-8 px-6">
         <p className="arch-label mb-4">Brand Assets</p>
-        <h1 className="text-3xl font-black text-white mb-4">Brand Assets</h1>
-        <p className="text-[#707070] text-sm mb-8">Acquire, develop, and scale digital properties.</p>
+        <h1 className="text-3xl font-black text-primary mb-4">Brand Assets</h1>
+        <p className="text-secondary text-sm mb-8">Acquire, develop, and scale digital properties.</p>
         <div className="space-y-3 mb-8">
           {phases.map((p) => (
-            <div key={p.num} className="border border-[#1a1a1a] p-4">
-              <span className="text-[#333] text-[10px] font-mono">{p.num}</span>
-              <h3 className="text-white text-sm font-semibold mt-1">{p.title}</h3>
-              <p className="text-[#707070] text-xs mt-1">{p.desc}</p>
+            <div key={p.num} className="border border-default p-4">
+              <span className="text-subtle text-[10px] font-mono">{p.num}</span>
+              <h3 className="text-primary text-sm font-semibold mt-1">{p.title}</h3>
+              <p className="text-secondary text-xs mt-1">{p.desc}</p>
             </div>
           ))}
         </div>
-        <Link href="/brands/philosophy" className="block border border-white text-white text-center py-3 text-xs uppercase tracking-[0.2em]">
+        <Link href="/brands/philosophy" className="block border border-primary text-primary text-center py-3 text-xs uppercase tracking-[0.2em]">
           Our Philosophy
         </Link>
       </div>
@@ -40,17 +40,17 @@ export default function BrandsPage() {
       <div className="hidden md:block min-h-screen pt-20">
         <div className="max-w-[1440px] mx-auto px-8 py-16">
           <p className="arch-label mb-4">Brand Assets</p>
-          <h1 className="text-6xl font-black text-white mb-6 leading-[0.95]">Brand Assets</h1>
-          <p className="text-[#606060] text-sm max-w-xl mb-16 leading-relaxed">
+          <h1 className="text-6xl font-black text-primary mb-6 leading-[0.95]">Brand Assets</h1>
+          <p className="text-secondary text-sm max-w-xl mb-16 leading-relaxed">
             We acquire premium domains and digital properties, develop them into valuable assets, and hold or exit at multiples.
           </p>
 
-          <div className="grid grid-cols-3 gap-px bg-[#1a1a1a] mb-16">
+          <div className="grid grid-cols-3 gap-px bg-grid mb-16">
             {phases.map((p) => (
-              <div key={p.num} className="bg-[#0a0a0a] p-10">
-                <span className="text-[#333] text-[10px] font-mono">{p.num}</span>
-                <h3 className="text-white text-lg font-semibold mt-4 mb-3">{p.title}</h3>
-                <p className="text-[#606060] text-sm leading-relaxed">{p.desc}</p>
+              <div key={p.num} className="bg-surface p-10">
+                <span className="text-subtle text-[10px] font-mono">{p.num}</span>
+                <h3 className="text-primary text-lg font-semibold mt-4 mb-3">{p.title}</h3>
+                <p className="text-secondary text-sm leading-relaxed">{p.desc}</p>
               </div>
             ))}
           </div>
@@ -64,8 +64,8 @@ export default function BrandsPage() {
               { label: "Exit Strategy", href: "/brands/exit-strategy" },
             ].map((item) => (
               <Link key={item.href} href={item.href} className="group panel p-6">
-                <p className="text-white text-xs font-semibold uppercase tracking-[0.1em] mb-1">{item.label}</p>
-                <p className="text-[#333] text-[10px]">Learn more →</p>
+                <p className="text-primary text-xs font-semibold uppercase tracking-[0.1em] mb-1">{item.label}</p>
+                <p className="text-subtle text-[10px]">Learn more →</p>
               </Link>
             ))}
           </div>

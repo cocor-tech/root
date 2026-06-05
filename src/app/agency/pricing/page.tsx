@@ -20,27 +20,27 @@ export default function PricingPage() {
     <PublicLayout>
       <div className="min-h-screen pt-32 pb-24">
         <div className="max-w-4xl mx-auto px-6">
-          <p className="text-[#555] text-[10px] uppercase tracking-[0.2em] mb-4">/ Agency / Pricing</p>
-          <h1 className="text-5xl md:text-6xl font-black text-white mb-6">Pricing</h1>
-          <p className="text-[#888] text-sm md:text-base max-w-xl mb-12 leading-relaxed">
+          <p className="text-muted text-[10px] uppercase tracking-[0.2em] mb-4">/ Agency / Pricing</p>
+          <h1 className="text-5xl md:text-6xl font-black text-primary mb-6">Pricing</h1>
+          <p className="text-secondary text-sm md:text-base max-w-xl mb-12 leading-relaxed">
             We offer transparent pricing across all services. Every project starts with a conversation to understand scope and requirements.
           </p>
 
-          <div className="border border-[#1a1a1a] divide-y divide-[#1a1a1a] mb-12">
+          <div className="border border-default divide-y divide-default mb-12">
             {services.map((s) => (
-              <div key={s.name} className="bg-[#0a0a0a] p-6 md:p-8 flex flex-col md:flex-row md:items-center justify-between gap-2">
+              <div key={s.name} className="bg-surface p-6 md:p-8 flex flex-col md:flex-row md:items-center justify-between gap-2">
                 <div>
-                  <h3 className="text-white font-semibold">{s.name}</h3>
-                  <p className="text-[#555] text-xs uppercase tracking-[0.1em] mt-1">{s.model}</p>
+                  <h3 className="text-primary font-semibold">{s.name}</h3>
+                  <p className="text-muted text-xs uppercase tracking-[0.1em] mt-1">{s.model}</p>
                 </div>
-                <span className="text-[#888] text-sm font-mono whitespace-nowrap">{s.range}</span>
+                <span className="text-secondary text-sm font-mono whitespace-nowrap">{s.range}</span>
               </div>
             ))}
           </div>
 
-          <div className="border border-[#1a1a1a] bg-[#0a0a0a] p-6 md:p-8 mb-12">
-            <h2 className="text-white font-semibold mb-3">Our Pricing Philosophy</h2>
-            <ul className="space-y-2 text-[#888] text-sm">
+          <div className="border border-default bg-surface p-6 md:p-8 mb-12">
+            <h2 className="text-primary font-semibold mb-3">Our Pricing Philosophy</h2>
+            <ul className="space-y-2 text-secondary text-sm">
               <li>— Project-based pricing for well-defined scope</li>
               <li>— Fixed-price for MVPs and smaller engagements</li>
               <li>— Monthly retainer for ongoing work and staff augmentation</li>
@@ -50,7 +50,7 @@ export default function PricingPage() {
           </div>
 
           <div className="text-center">
-            <Link href="/contact" className="border border-white text-white px-10 py-4 text-xs uppercase tracking-[0.15em] hover:bg-white hover:text-black transition-all duration-200 inline-block">
+            <Link href="/contact" className="border border-primary text-primary px-10 py-4 text-xs uppercase tracking-[0.15em] hover:bg-inverse hover:text-inverse transition-all duration-200 inline-block">
               Get a Quote
             </Link>
           </div>

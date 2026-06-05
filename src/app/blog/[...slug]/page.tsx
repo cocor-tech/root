@@ -47,9 +47,9 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
       <PublicLayout>
         <div className="min-h-screen flex items-center justify-center">
           <div className="text-center max-w-md px-6">
-            <h1 className="text-6xl font-black text-white mb-4">404</h1>
-            <p className="text-[#888] mb-6">Post not found.</p>
-            <a href="/blog" className="inline-block border border-white text-white px-8 py-3 text-xs uppercase tracking-[0.15em] hover:bg-white hover:text-black transition-all duration-200">
+            <h1 className="text-6xl font-black text-primary mb-4">404</h1>
+            <p className="text-secondary mb-6">Post not found.</p>
+            <a href="/blog" className="inline-block border border-primary text-primary px-8 py-3 text-xs uppercase tracking-[0.15em] hover:bg-inverse hover:text-inverse transition-all duration-200">
               Back to Blog
             </a>
           </div>
@@ -63,12 +63,12 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
   return (
     <PublicLayout>
       <article className="max-w-3xl mx-auto px-6 pt-32 pb-24">
-        <div className="flex items-center gap-3 text-[10px] text-[#555] uppercase tracking-[0.15em] mb-6">
+        <div className="flex items-center gap-3 text-[10px] text-muted uppercase tracking-[0.15em] mb-6">
           {doc.meta.category && <span>{doc.meta.category}</span>}
           {doc.meta.published && <span>{doc.meta.published}</span>}
           {doc.meta.author && <span>By {doc.meta.author}</span>}
         </div>
-        <div className="bg-[#0a0a0a] border border-[#1a1a1a] p-6 md:p-10">
+        <div className="bg-surface border border-default p-6 md:p-10">
           <article dangerouslySetInnerHTML={{ __html: html }} />
         </div>
       </article>

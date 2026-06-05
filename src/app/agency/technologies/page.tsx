@@ -38,17 +38,17 @@ export default function TechnologiesPage() {
     <PublicLayout>
       <div className="min-h-screen pt-32 pb-24">
         <div className="max-w-4xl mx-auto px-6">
-          <p className="text-[#555] text-[10px] uppercase tracking-[0.2em] mb-4">/ Agency / Technologies</p>
-          <h1 className="text-5xl md:text-6xl font-black text-white mb-6">Technologies</h1>
-          <p className="text-[#888] text-sm md:text-base max-w-xl mb-16 leading-relaxed">Our core technology stack. We choose tools based on project needs.</p>
+          <p className="text-muted text-[10px] uppercase tracking-[0.2em] mb-4">/ Agency / Technologies</p>
+          <h1 className="text-5xl md:text-6xl font-black text-primary mb-6">Technologies</h1>
+          <p className="text-secondary text-sm md:text-base max-w-xl mb-16 leading-relaxed">Our core technology stack. We choose tools based on project needs.</p>
 
-          <div className="grid md:grid-cols-2 gap-px bg-[#1a1a1a]">
+          <div className="grid md:grid-cols-2 gap-px bg-grid">
             {categories.map((cat) => (
-              <div key={cat.name} className="bg-[#0a0a0a] p-6 md:p-8">
-                <h3 className="text-white text-xs uppercase tracking-[0.15em] font-semibold mb-4">{cat.name}</h3>
+              <div key={cat.name} className="bg-surface p-6 md:p-8">
+                <h3 className="text-primary text-xs uppercase tracking-[0.15em] font-semibold mb-4">{cat.name}</h3>
                 <ul className="space-y-2">
                   {cat.items.map((item) => (
-                    <li key={item} className="text-[#888] text-sm">{item}</li>
+                    <li key={item} className="text-secondary text-sm">{item}</li>
                   ))}
                 </ul>
               </div>
