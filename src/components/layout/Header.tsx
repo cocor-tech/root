@@ -87,32 +87,21 @@ export function Header() {
       </header>
 
       {/* ─── MOBILE HANGING CONTROLS ─── */}
-      <div className="mobile-nav fixed right-0 top-[25%] z-[60] flex flex-col items-center gap-1">
-        <Link
-          href="/"
-          className="w-10 h-10 flex items-center justify-center bg-inverse text-primary border border-primary/20 shadow-lg"
-          style={{ transition: "background-color 0.15s ease, border-color 0.15s ease" }}
-          aria-label="Home"
-        >
-          <Home size={15} />
-        </Link>
-        <button
-          onClick={() => setMenuOpen(!menuOpen)}
-          className="w-10 h-10 flex items-center justify-center bg-inverse text-primary border border-primary/20 shadow-lg"
-          style={{ transition: "background-color 0.15s ease, border-color 0.15s ease" }}
-          aria-label={menuOpen ? "Close menu" : "Open menu"}
-        >
-          {menuOpen ? <X size={15} /> : <Menu size={15} />}
-        </button>
-        <button
-          onClick={toggle}
-          className="w-10 h-10 flex items-center justify-center bg-inverse text-primary border border-primary/20 shadow-lg"
-          style={{ transition: "background-color 0.15s ease, border-color 0.15s ease" }}
-          aria-label="Toggle theme"
-        >
-          {theme === "dark" ? <Moon size={14} /> : <Sun size={14} />}
-        </button>
-      </div>
+      {pathname === "/" ? (
+        /* Homepage: vertical column on the right side */
+        <div className="mobile-nav fixed right-0 top-[25%] z-[60] flex flex-col items-center gap-1">
+          <Link href="/" className="w-10 h-10 flex items-center justify-center bg-inverse text-primary border border-primary/20 shadow-lg" style={{ transition: "background-color 0.15s ease, border-color 0.15s ease" }} aria-label="Home"><Home size={15} /></Link>
+          <button onClick={() => setMenuOpen(!menuOpen)} className="w-10 h-10 flex items-center justify-center bg-inverse text-primary border border-primary/20 shadow-lg" style={{ transition: "background-color 0.15s ease, border-color 0.15s ease" }} aria-label={menuOpen ? "Close menu" : "Open menu"}>{menuOpen ? <X size={15} /> : <Menu size={15} />}</button>
+          <button onClick={toggle} className="w-10 h-10 flex items-center justify-center bg-inverse text-primary border border-primary/20 shadow-lg" style={{ transition: "background-color 0.15s ease, border-color 0.15s ease" }} aria-label="Toggle theme">{theme === "dark" ? <Moon size={14} /> : <Sun size={14} />}</button>
+        </div>
+      ) : (
+        /* Other pages: horizontal row at top right */
+        <div className="mobile-nav fixed right-3 top-3 z-[60] flex flex-row items-center gap-1">
+          <Link href="/" className="w-9 h-9 flex items-center justify-center bg-inverse text-primary border border-primary/20 shadow-lg" style={{ transition: "background-color 0.15s ease, border-color 0.15s ease" }} aria-label="Home"><Home size={13} /></Link>
+          <button onClick={() => setMenuOpen(!menuOpen)} className="w-9 h-9 flex items-center justify-center bg-inverse text-primary border border-primary/20 shadow-lg" style={{ transition: "background-color 0.15s ease, border-color 0.15s ease" }} aria-label={menuOpen ? "Close menu" : "Open menu"}>{menuOpen ? <X size={13} /> : <Menu size={13} />}</button>
+          <button onClick={toggle} className="w-9 h-9 flex items-center justify-center bg-inverse text-primary border border-primary/20 shadow-lg" style={{ transition: "background-color 0.15s ease, border-color 0.15s ease" }} aria-label="Toggle theme">{theme === "dark" ? <Moon size={12} /> : <Sun size={12} />}</button>
+        </div>
+      )}
 
       {/* ─── MOBILE SLIDE-OUT MENU ─── */}
       <div
