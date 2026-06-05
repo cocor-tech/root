@@ -18,6 +18,3 @@ Cocor Tech is an operating company that builds, acquires, and scales digital ass
 - [Services](/docs/services) — Agency service offerings
 - [Contracts](/docs/contracts) — Smart contract architecture on Stellar
 
-## Adding Documentation
-
-To add a new documentation page, create a `.md` file in the `content/docs/` directory with YAML frontmatter. No coding required.
