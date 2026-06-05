@@ -1,17 +1,18 @@
 "use client"
 
-import { useState, useRef, useEffect } from "react"
+import { useState, useEffect, useCallback } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
+import { Menu, X, Box, Zap, Diamond, BookOpen, FileText, User, Mail, ChevronRight } from "lucide-react"
 
 const navLinks = [
-  { label: "Products", href: "/products", icon: "◆" },
-  { label: "Agency", href: "/agency", icon: "⚡" },
-  { label: "Brands", href: "/brands", icon: "◈" },
-  { label: "Docs", href: "/docs", icon: "▣" },
-  { label: "Blog", href: "/blog", icon: "◇" },
-  { label: "About", href: "/about", icon: "○" },
-  { label: "Contact", href: "/contact", icon: "◎" },
+  { label: "Products", href: "/products", icon: Box },
+  { label: "Agency", href: "/agency", icon: Zap },
+  { label: "Brands", href: "/brands", icon: Diamond },
+  { label: "Docs", href: "/docs", icon: BookOpen },
+  { label: "Blog", href: "/blog", icon: FileText },
+  { label: "About", href: "/about", icon: User },
+  { label: "Contact", href: "/contact", icon: Mail },
 ]
 
 export function Header() {
@@ -29,13 +30,23 @@ export function Header() {
     setMenuOpen(false)
   }, [pathname])
 
+  const isActive = useCallback(
+    (href: string) => pathname === href || pathname.startsWith(href + "/"),
+    [pathname]
+  )
+
   return (
     <>
       {/* ─── DESKTOP TOP NAV ─── */}
       <header
-        className={`desktop-nav fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          scrolled ? "bg-black/95 backdrop-blur-xl" : "bg-transparent"
-        }`}
+        className="desktop-nav fixed top-0 left-0 right-0 z-50"
+        style={{
+          willChange: "background-color",
+          transition: "background-color 0.15s ease, backdrop-filter 0.15s ease",
+          backgroundColor: scrolled ? "rgba(0,0,0,0.95)" : "transparent",
+          backdropFilter: scrolled ? "blur(24px)" : "none",
+          WebkitBackdropFilter: scrolled ? "blur(24px)" : "none",
+        }}
       >
         <div className="border-b border-[#1a1a1a]">
           <div className="max-w-[1440px] mx-auto px-8 h-14 flex items-center justify-between">
@@ -48,11 +59,12 @@ export function Header() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`text-[10px] uppercase tracking-[0.2em] transition-colors duration-200 ${
-                    pathname === link.href || pathname.startsWith(link.href + "/")
+                  className={`text-[10px] uppercase tracking-[0.2em] ${
+                    isActive(link.href)
                       ? "text-white"
                       : "text-[#505050] hover:text-white"
                   }`}
+                  style={{ transition: "color 0.15s ease" }}
                 >
                   {link.label}
                 </Link>
@@ -62,7 +74,8 @@ export function Header() {
             <div className="flex items-center gap-4">
               <Link
                 href="/contact"
-                className="text-[10px] uppercase tracking-[0.2em] text-white border border-white px-4 py-1.5 hover:bg-white hover:text-black transition-all"
+                className="text-[10px] uppercase tracking-[0.2em] text-white border border-white px-4 py-1.5 hover:bg-white hover:text-black"
+                style={{ transition: "background-color 0.15s ease, color 0.15s ease" }}
               >
                 Start a Project
               </Link>
@@ -71,64 +84,92 @@ export function Header() {
         </div>
       </header>
 
-      {/* ─── MOBILE BOTTOM NAV ─── */}
-      <nav className="mobile-nav fixed bottom-0 left-0 right-0 z-50 bg-black/95 backdrop-blur-xl border-t border-[#1a1a1a]">
-        <div className="flex items-center justify-around h-14">
-          {navLinks.slice(0, 5).map((link) => {
-            const isActive = pathname === link.href || pathname.startsWith(link.href + "/")
-            return (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={`flex flex-col items-center gap-0.5 ${
-                  isActive ? "text-white" : "text-[#505050]"
-                }`}
-              >
-                <span className="text-[10px] leading-none">{link.icon}</span>
-                <span className="text-[8px] uppercase tracking-[0.15em]">{link.label}</span>
-              </Link>
-            )
-          })}
+      {/* ─── MOBILE HANGING HAMBURGER ─── */}
+      <button
+        onClick={() => setMenuOpen(!menuOpen)}
+        className="mobile-nav fixed right-0 top-1/2 -translate-y-1/2 z-[60] bg-white text-black w-10 h-10 flex items-center justify-center shadow-lg hover:bg-[#ccc]"
+        style={{ transition: "background-color 0.15s ease" }}
+        aria-label={menuOpen ? "Close menu" : "Open menu"}
+      >
+        {menuOpen ? <X size={16} /> : <Menu size={16} />}
+      </button>
+
+      {/* ─── MOBILE SLIDE-OUT MENU ─── */}
+      <div
+        className={`mobile-nav fixed top-0 right-0 h-full w-[280px] z-50 bg-black/95 backdrop-blur-xl border-l border-[#1a1a1a] flex flex-col ${
+          menuOpen ? "translate-x-0" : "translate-x-full"
+        }`}
+        style={{ transition: "transform 0.3s cubic-bezier(0.4, 0, 0.2, 1)" }}
+      >
+        {/* Close area */}
+        <div className="h-16 flex items-center justify-end px-6 border-b border-[#1a1a1a]">
           <button
-            onClick={() => setMenuOpen(!menuOpen)}
-            className="flex flex-col items-center gap-0.5 text-[#505050]"
+            onClick={() => setMenuOpen(false)}
+            className="text-[#707070] hover:text-white"
+            style={{ transition: "color 0.15s ease" }}
+            aria-label="Close"
           >
-            <span className="text-[10px] leading-none">⋯</span>
-            <span className="text-[8px] uppercase tracking-[0.15em]">More</span>
+            <X size={18} />
           </button>
         </div>
 
-        {menuOpen && (
-          <div className="border-t border-[#1a1a1a] bg-black/95 backdrop-blur-xl px-6 py-4">
-            <div className="flex flex-col gap-3">
-              {navLinks.slice(5).map((link) => (
+        {/* Nav links */}
+        <nav className="flex-1 overflow-y-auto py-4 px-4">
+          <div className="space-y-1">
+            {navLinks.map((link) => {
+              const Icon = link.icon
+              const active = isActive(link.href)
+              return (
                 <Link
                   key={link.href}
                   href={link.href}
                   onClick={() => setMenuOpen(false)}
-                  className={`flex items-center gap-3 text-sm ${
-                    pathname === link.href ? "text-white" : "text-[#707070]"
+                  className={`flex items-center gap-3 px-4 py-3 text-sm ${
+                    active
+                      ? "bg-white text-black"
+                      : "text-[#707070] hover:text-white hover:bg-[#0a0a0a]"
                   }`}
+                  style={{ transition: "background-color 0.15s ease, color 0.15s ease" }}
                 >
-                  <span className="text-[10px]">{link.icon}</span>
-                  {link.label}
+                  <Icon size={14} strokeWidth={1.5} />
+                  <span className="flex-1">{link.label}</span>
+                  <ChevronRight size={12} strokeWidth={1} className="text-[#333]" />
                 </Link>
-              ))}
-              <Link
-                href="/contact"
-                onClick={() => setMenuOpen(false)}
-                className="border border-white text-white text-center py-2 text-xs uppercase tracking-[0.15em] mt-2"
-              >
-                Start a Project
-              </Link>
-            </div>
+              )
+            })}
           </div>
-        )}
-      </nav>
 
-      {/* Spacer for fixed navs */}
+          <div className="mt-6 px-4">
+            <Link
+              href="/contact"
+              onClick={() => setMenuOpen(false)}
+              className="block border border-white text-white text-center py-3 text-xs uppercase tracking-[0.2em] hover:bg-white hover:text-black"
+              style={{ transition: "background-color 0.15s ease, color 0.15s ease" }}
+            >
+              Start a Project
+            </Link>
+          </div>
+        </nav>
+
+        {/* Footer */}
+        <div className="px-6 py-4 border-t border-[#1a1a1a]">
+          <p className="text-[#333] text-[10px] uppercase tracking-[0.15em]">
+            Cocor Tech
+          </p>
+        </div>
+      </div>
+
+      {/* Overlay */}
+      {menuOpen && (
+        <div
+          className="mobile-nav fixed inset-0 z-40 bg-black/40"
+          onClick={() => setMenuOpen(false)}
+          style={{ transition: "opacity 0.3s ease" }}
+        />
+      )}
+
+      {/* Spacers */}
       <div className="desktop-nav h-14" />
-      <div className="mobile-nav h-14" />
     </>
   )
 }
