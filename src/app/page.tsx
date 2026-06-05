@@ -6,6 +6,22 @@ import { PublicLayout } from "@/components/layout/PublicLayout"
 
 const TYPED_LINES = ["BUILD.", "ACQUIRE.", "SCALE."]
 
+const glassStyle: React.CSSProperties = {
+  background: "rgba(255,255,255,0.03)",
+  backdropFilter: "blur(20px)",
+  WebkitBackdropFilter: "blur(20px)",
+  border: "1px solid rgba(255,255,255,0.06)",
+  transition: "border-color 0.3s ease, box-shadow 0.3s ease, background 0.3s ease",
+}
+
+const glassStrongStyle: React.CSSProperties = {
+  background: "rgba(255,255,255,0.05)",
+  backdropFilter: "blur(24px)",
+  WebkitBackdropFilter: "blur(24px)",
+  border: "1px solid rgba(255,255,255,0.08)",
+  transition: "border-color 0.3s ease, box-shadow 0.3s ease",
+}
+
 export default function Home() {
   const [typed, setTyped] = useState<string[]>(["", "", ""])
   const [cursor, setCursor] = useState(true)
@@ -113,7 +129,7 @@ export default function Home() {
           >
             <Link
               href="/products"
-              className="glass-strong text-white px-8 py-3 text-xs uppercase tracking-[0.25em]"
+              className="text-white px-8 py-3 text-xs uppercase tracking-[0.25em]" style={glassStrongStyle}
             >
               Explore Products
             </Link>
@@ -140,7 +156,7 @@ export default function Home() {
               <Link
                 key={d.title}
                 href={d.href}
-                className="glass group block p-6 md:p-8"
+                className="group block p-6 md:p-8" style={glassStyle}
               >
                 <p className="text-white/20 text-[10px] font-mono mb-3">0{i + 1}</p>
                 <h3 className="text-white text-lg md:text-xl font-bold mb-3 group-hover:text-white/80 transition-colors duration-300">
@@ -161,7 +177,7 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-6 py-20 md:py-28">
           <p className="text-white/20 text-[10px] uppercase tracking-[0.25em] mb-4">Flagship Product</p>
           <div className="grid md:grid-cols-2 gap-6">
-            <div className="glass-strong p-8 md:p-10">
+            <div className="p-8 md:p-10" style={glassStrongStyle}>
               <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 leading-[0.95]">Moistello</h2>
               <p className="text-white/35 text-sm leading-relaxed mb-8">
                 Decentralized savings circles on the Stellar blockchain. Trustless, transparent, sub-cent fees.
@@ -170,14 +186,14 @@ export default function Home() {
                 href="https://moistello.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block glass text-white px-8 py-3 text-xs uppercase tracking-[0.25em]"
+                className="inline-block text-white px-8 py-3 text-xs uppercase tracking-[0.25em]" style={glassStyle}
               >
                 Visit Moistello →
               </a>
             </div>
             <div className="grid grid-cols-2 gap-4">
               {moistelloFeatures.map((f) => (
-                <div key={f} className="glass p-5 md:p-6">
+                <div key={f} className="p-5 md:p-6" style={glassStyle}>
                   <p className="text-white text-xs font-semibold uppercase tracking-[0.1em] mb-2">{f.split("—")[0]}</p>
                   <p className="text-white/35 text-xs leading-relaxed">{f.split("—")[1]}</p>
                 </div>
@@ -191,7 +207,7 @@ export default function Home() {
       <section className="border-t border-white/5">
         <div className="max-w-6xl mx-auto px-6 py-20 md:py-28">
           <div className="grid md:grid-cols-2 gap-6">
-            <div className="glass-strong p-8 md:p-10">
+            <div className="p-8 md:p-10" style={glassStrongStyle}>
               <p className="text-white/20 text-[10px] uppercase tracking-[0.25em] mb-4">Agency</p>
               <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 leading-[0.95]">We build software.</h2>
               <p className="text-white/35 text-sm leading-relaxed mb-8">
@@ -199,12 +215,12 @@ export default function Home() {
               </p>
               <Link
                 href="/agency"
-                className="inline-block glass text-white px-8 py-3 text-xs uppercase tracking-[0.25em]"
+                className="inline-block text-white px-8 py-3 text-xs uppercase tracking-[0.25em]" style={glassStyle}
               >
                 Hire the Agency →
               </Link>
             </div>
-            <div className="glass-strong p-8 md:p-10 font-mono flex items-center">
+            <div className="p-8 md:p-10 font-mono flex items-center" style={glassStrongStyle}>
               <div>
                 <p className="text-white/60 text-xs mb-4">$ ./cocor-agency --capabilities</p>
                 <div className="space-y-2 text-xs text-white/30">
@@ -230,7 +246,7 @@ export default function Home() {
               { num: "02", title: "Develop & Grow", desc: "Build MVPs, drive traffic, establish revenue." },
               { num: "03", title: "Hold or Exit", desc: "Hold cash-flowing assets or sell at multiples." },
             ].map((p) => (
-              <div key={p.num} className="glass p-6 md:p-8">
+              <div key={p.num} className="p-6 md:p-8" style={glassStyle}>
                 <p className="text-white/20 text-[10px] font-mono mb-3">{p.num}</p>
                 <h3 className="text-white text-lg md:text-xl font-bold mb-3">{p.title}</h3>
                 <p className="text-white/35 text-sm leading-relaxed">{p.desc}</p>
@@ -240,7 +256,7 @@ export default function Home() {
           <div className="text-center md:text-left">
             <Link
               href="/brands"
-              className="inline-block glass text-white px-8 py-3 text-xs uppercase tracking-[0.25em]"
+              className="inline-block text-white px-8 py-3 text-xs uppercase tracking-[0.25em]" style={glassStyle}
             >
               Our Strategy →
             </Link>
@@ -260,7 +276,7 @@ export default function Home() {
           </p>
           <Link
             href="/contact"
-            className="inline-block glass-strong text-white px-10 py-4 text-xs uppercase tracking-[0.25em]"
+            className="inline-block text-white px-10 py-4 text-xs uppercase tracking-[0.25em]" style={glassStrongStyle}
           >
             Get in Touch
           </Link>
