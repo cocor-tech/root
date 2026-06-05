@@ -54,6 +54,8 @@ html.light body::after { display: none; }
 html.light body::before { display: none; }
 html.light ::selection { background: #000000; color: #ffffff; }
 
+/* Light mode class overrides injected by ThemeProvider at runtime (bypasses Tailwind) */
+
 /* ── Base ── */
 body {
   background: var(--bg);

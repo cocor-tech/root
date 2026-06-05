@@ -24,13 +24,13 @@ export default function AgencyPage() {
         <h1 className="text-3xl font-black text-white mb-4">The Agency</h1>
         <p className="text-[#707070] text-sm mb-8">We build software that moves businesses forward.</p>
 
-        <div className="border border-[#00ff41]/30 bg-black font-mono p-4 text-xs mb-8">
-          <p className="text-[#00ff41] mb-2">$ ./cocor-agency --services</p>
+        <div className="border border-white/20 bg-black font-mono p-4 text-xs mb-8">
+          <p className="text-white/70 mb-2">$ ./cocor-agency --services</p>
           <div className="text-[#505050] space-y-1">
-            <p><span className="text-[#00ff41]">├──</span> Custom Software</p>
-            <p><span className="text-[#00ff41]">├──</span> MVP Development</p>
-            <p><span className="text-[#00ff41]">├──</span> Staff Augmentation</p>
-            <p><span className="text-[#00ff41]">└──</span> Legacy Modernization</p>
+            <p><span className="text-white/70">├──</span> Custom Software</p>
+            <p><span className="text-white/70">├──</span> MVP Development</p>
+            <p><span className="text-white/70">├──</span> Staff Augmentation</p>
+            <p><span className="text-white/70">└──</span> Legacy Modernization</p>
           </div>
         </div>
 
@@ -80,15 +80,15 @@ export default function AgencyPage() {
 
             <div className="bg-black p-12 font-mono flex items-center">
               <div>
-                <p className="text-[#00ff41] text-xs mb-4">$ ./cocor-agency --capabilities</p>
+                <p className="text-white/70 text-xs mb-4">$ ./cocor-agency --capabilities</p>
                 <div className="space-y-2 text-xs text-[#606060]">
-                  <p><span className="text-[#00ff41]">├──</span> Custom Software Development — from $20K</p>
-                  <p><span className="text-[#00ff41]">├──</span> MVP Development (4-12 weeks) — from $10K</p>
-                  <p><span className="text-[#00ff41]">├──</span> Staff Augmentation — from $5K/month</p>
-                  <p><span className="text-[#00ff41]">└──</span> Legacy Modernization — from $30K</p>
+                  <p><span className="text-white/70">├──</span> Custom Software Development — from $20K</p>
+                  <p><span className="text-white/70">├──</span> MVP Development (4-12 weeks) — from $10K</p>
+                  <p><span className="text-white/70">├──</span> Staff Augmentation — from $5K/month</p>
+                  <p><span className="text-white/70">└──</span> Legacy Modernization — from $30K</p>
                   <p className="mt-4 text-[#333]">Stack: Next.js, Go, Rust, TypeScript, Stellar, PostgreSQL</p>
-                  <p className="text-[#333]">Location: Nigeria → <span className="text-[#00ff41]">Global delivery</span></p>
-                  <p className="text-[#333]">Status: <span className="text-[#00ff41]">Available for projects</span></p>
+                  <p className="text-[#333]">Location: Nigeria → <span className="text-white/70">Global delivery</span></p>
+                  <p className="text-[#333]">Status: <span className="text-white/70">Available for projects</span></p>
                 </div>
               </div>
             </div>

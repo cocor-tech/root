@@ -33,7 +33,7 @@ export default function Project1Page() {
             </div>
             <div className="bg-[#0a0a0a] p-6">
               <h3 className="text-white text-xs uppercase tracking-[0.1em] font-semibold mb-2">Status</h3>
-              <p className="text-[#00ff41] text-sm font-mono">Live (moistello.com)</p>
+              <p className="text-white/70 text-sm font-mono">Live (moistello.com)</p>
             </div>
           </div>
 
