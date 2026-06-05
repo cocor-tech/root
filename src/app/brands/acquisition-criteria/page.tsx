@@ -45,7 +45,7 @@ export default function AcquisitionCriteriaPage() {
               If you own a digital property that meets our criteria, we want to hear from you.
             </p>
             <ul className="space-y-2 text-secondary text-sm">
-              <li>— Email us at hi@cocor.tech with details about your property</li>
+              <li>— Message us on X at @cocortech with details about your property</li>
               <li>— Include traffic, revenue, and asking price</li>
               <li>— We respond within 5 business days</li>
             </ul>

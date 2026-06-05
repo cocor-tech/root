@@ -34,9 +34,9 @@ export default function ContactPage() {
           <button type="submit" className="w-full border border-primary text-primary py-3 text-xs uppercase tracking-[0.2em]">Send Message</button>
         </form>
 
-        <div className="mt-8 border-t border-default pt-6 space-y-1 text-sm">
-          <p className="text-muted">hi@cocor.tech</p>
-          <p className="text-muted">@moistello on X</p>
+        <div className="mt-8 border-t border-default pt-6 space-y-3 text-sm">
+          <p className="text-muted">Reach us on X: @cocortech</p>
+          <p className="text-muted">Send a pull request: github.com/cocor-tech</p>
         </div>
       </div>
 
@@ -51,11 +51,11 @@ export default function ContactPage() {
                 Agency inquiries, partnership opportunities, brand asset offers, or just to say hello.
               </p>
               <div className="space-y-4 pt-8 border-t border-default">
-                <p className="text-primary text-xs font-semibold uppercase tracking-[0.1em]">Email</p>
-                <p className="text-secondary text-sm">hi@cocor.tech</p>
-                <p className="text-primary text-xs font-semibold uppercase tracking-[0.1em] mt-6">Social</p>
-                <p className="text-secondary text-sm">@moistello on X</p>
+                <p className="text-primary text-xs font-semibold uppercase tracking-[0.1em]">X (Twitter)</p>
+                <p className="text-secondary text-sm">@cocortech</p>
+                <p className="text-primary text-xs font-semibold uppercase tracking-[0.1em] mt-6">GitHub</p>
                 <p className="text-secondary text-sm">github.com/cocor-tech</p>
+                <p className="text-muted text-xs mt-2">Send a pull request or open an issue.</p>
               </div>
             </div>
 
