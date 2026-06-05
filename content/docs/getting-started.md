@@ -22,7 +22,7 @@ If you need custom software built:
 
 Our flagship product Moistello is live at [moistello.com](https://moistello.com). To get started:
 
-1. Connect a Stellar wallet (Freighter, WalletConnect, etc.)
+1. Create a passkey with device key/ biometrics
 2. Browse or create a savings circle
 3. Set your contribution amount and frequency
 4. Invite members or join an existing circle
