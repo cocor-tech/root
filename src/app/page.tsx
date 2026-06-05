@@ -15,13 +15,11 @@ export default function Home() {
   const rafRef = useRef(0)
   const startRef = useRef(0)
 
-  // Blinking cursor
   useEffect(() => {
     const iv = setInterval(() => setCursor((c) => !c), 530)
     return () => clearInterval(iv)
   }, [])
 
-  // Typewriter
   useEffect(() => {
     const line = TYPED_LINES[lineIdx]
     if (!line) { setDone(true); return }
@@ -63,8 +61,9 @@ export default function Home() {
   return (
     <PublicLayout>
       {/* ═══ HERO ═══ */}
-      <section className="relative min-h-screen flex items-center justify-center px-6">
-        <div className="w-full max-w-4xl mx-auto text-center md:text-left md:mx-0">
+      <section className="relative min-h-screen flex items-center justify-center px-6 overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.015)_0%,transparent_60%)]" />
+        <div className="w-full max-w-4xl mx-auto text-center md:text-left md:mx-0 relative z-10">
           <p className="text-white/30 text-[10px] md:text-[11px] uppercase tracking-[0.3em] mb-6 md:mb-8">
             Cocor Tech
           </p>
@@ -73,7 +72,7 @@ export default function Home() {
             {TYPED_LINES.map((_, i) => (
               <div key={i} className="flex items-baseline gap-0">
                 <span
-                  className={`text-[clamp(2.8rem,10vw,7rem)] font-black text-white leading-[0.9] tracking-[-0.03em] ${
+                  className={`text-[clamp(2.8rem,10vw,7rem)] font-black text-white leading-[0.9] tracking-[-0.04em] ${
                     i === lineIdx && !done ? "invisible" : ""
                   }`}
                 >
@@ -114,7 +113,7 @@ export default function Home() {
           >
             <Link
               href="/products"
-              className="border border-white/30 text-white px-8 py-3 text-xs uppercase tracking-[0.25em] hover:bg-white hover:text-black hover:border-white transition-all duration-300"
+              className="glass-strong text-white px-8 py-3 text-xs uppercase tracking-[0.25em]"
             >
               Explore Products
             </Link>
@@ -136,19 +135,19 @@ export default function Home() {
             Three divisions, one flywheel
           </h2>
 
-          <div className="grid md:grid-cols-3 gap-px md:gap-0 divide-y md:divide-y-0 md:divide-x divide-white/5">
+          <div className="grid md:grid-cols-3 gap-4 md:gap-6">
             {divisions.map((d, i) => (
               <Link
                 key={d.title}
                 href={d.href}
-                className="group block py-8 md:p-10 md:first:pl-0 md:last:pr-0"
+                className="glass group block p-6 md:p-8"
               >
-                <p className="text-white/15 text-[10px] font-mono mb-3">0{i + 1}</p>
-                <h3 className="text-white text-lg md:text-xl font-bold mb-3 group-hover:text-white/60 transition-colors duration-300">
+                <p className="text-white/20 text-[10px] font-mono mb-3">0{i + 1}</p>
+                <h3 className="text-white text-lg md:text-xl font-bold mb-3 group-hover:text-white/80 transition-colors duration-300">
                   {d.title}
                 </h3>
-                <p className="text-white/30 text-sm leading-relaxed mb-4">{d.desc}</p>
-                <span className="text-white/50 text-[10px] uppercase tracking-[0.2em] group-hover:text-white transition-colors duration-300">
+                <p className="text-white/35 text-sm leading-relaxed mb-5">{d.desc}</p>
+                <span className="text-white/40 text-[10px] uppercase tracking-[0.2em] group-hover:text-white transition-colors duration-300">
                   {d.cta} →
                 </span>
               </Link>
@@ -161,26 +160,26 @@ export default function Home() {
       <section className="border-t border-white/5">
         <div className="max-w-6xl mx-auto px-6 py-20 md:py-28">
           <p className="text-white/20 text-[10px] uppercase tracking-[0.25em] mb-4">Flagship Product</p>
-          <div className="grid md:grid-cols-2 gap-10 md:gap-16">
-            <div>
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="glass-strong p-8 md:p-10">
               <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 leading-[0.95]">Moistello</h2>
-              <p className="text-white/30 text-sm leading-relaxed mb-8">
+              <p className="text-white/35 text-sm leading-relaxed mb-8">
                 Decentralized savings circles on the Stellar blockchain. Trustless, transparent, sub-cent fees.
               </p>
               <a
                 href="https://moistello.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block border border-white/30 text-white px-8 py-3 text-xs uppercase tracking-[0.25em] hover:bg-white hover:text-black hover:border-white transition-all duration-300"
+                className="inline-block glass text-white px-8 py-3 text-xs uppercase tracking-[0.25em]"
               >
                 Visit Moistello →
               </a>
             </div>
-            <div className="grid grid-cols-2 gap-6">
-              {moistelloFeatures.slice(0, 4).map((f) => (
-                <div key={f} className="border-t border-white/10 pt-4">
-                  <p className="text-white text-xs font-semibold uppercase tracking-[0.1em]">{f.split("—")[0]}</p>
-                  <p className="text-white/30 text-xs mt-1 leading-relaxed">{f.split("—")[1]}</p>
+            <div className="grid grid-cols-2 gap-4">
+              {moistelloFeatures.map((f) => (
+                <div key={f} className="glass p-5 md:p-6">
+                  <p className="text-white text-xs font-semibold uppercase tracking-[0.1em] mb-2">{f.split("—")[0]}</p>
+                  <p className="text-white/35 text-xs leading-relaxed">{f.split("—")[1]}</p>
                 </div>
               ))}
             </div>
@@ -191,28 +190,30 @@ export default function Home() {
       {/* ═══ AGENCY ═══ */}
       <section className="border-t border-white/5">
         <div className="max-w-6xl mx-auto px-6 py-20 md:py-28">
-          <div className="grid md:grid-cols-2 gap-10 md:gap-16">
-            <div>
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="glass-strong p-8 md:p-10">
               <p className="text-white/20 text-[10px] uppercase tracking-[0.25em] mb-4">Agency</p>
               <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 leading-[0.95]">We build software.</h2>
-              <p className="text-white/30 text-sm leading-relaxed mb-8">
+              <p className="text-white/35 text-sm leading-relaxed mb-8">
                 Custom development, MVPs, staff augmentation, legacy modernization.
               </p>
               <Link
                 href="/agency"
-                className="inline-block border border-white/30 text-white px-8 py-3 text-xs uppercase tracking-[0.25em] hover:bg-white hover:text-black hover:border-white transition-all duration-300"
+                className="inline-block glass text-white px-8 py-3 text-xs uppercase tracking-[0.25em]"
               >
                 Hire the Agency →
               </Link>
             </div>
-            <div className="border border-white/10 p-6 md:p-8 font-mono">
-              <p className="text-white/70 text-xs mb-4">$ ./cocor-agency --capabilities</p>
-              <div className="space-y-2 text-xs text-white/30">
-                <p><span className="text-white/70">├──</span> Custom Software Development</p>
-                <p><span className="text-white/70">├──</span> MVP Development (4-12 weeks)</p>
-                <p><span className="text-white/70">├──</span> Staff Augmentation</p>
-                <p><span className="text-white/70">└──</span> Legacy Modernization</p>
-                <p className="mt-4 text-white/15">Status: <span className="text-white/70">Available</span></p>
+            <div className="glass-strong p-8 md:p-10 font-mono flex items-center">
+              <div>
+                <p className="text-white/60 text-xs mb-4">$ ./cocor-agency --capabilities</p>
+                <div className="space-y-2 text-xs text-white/30">
+                  <p><span className="text-white/60">├──</span> Custom Software Development</p>
+                  <p><span className="text-white/60">├──</span> MVP Development (4-12 weeks)</p>
+                  <p><span className="text-white/60">├──</span> Staff Augmentation</p>
+                  <p><span className="text-white/60">└──</span> Legacy Modernization</p>
+                  <p className="mt-4 text-white/15">Status: <span className="text-white/60">Available</span></p>
+                </div>
               </div>
             </div>
           </div>
@@ -223,18 +224,26 @@ export default function Home() {
       <section className="border-t border-white/5">
         <div className="max-w-6xl mx-auto px-6 py-20 md:py-28">
           <p className="text-white/20 text-[10px] uppercase tracking-[0.25em] mb-4">Brand Assets</p>
-          <div className="grid md:grid-cols-3 gap-px md:gap-0 divide-y md:divide-y-0 md:divide-x divide-white/5 mb-12">
+          <div className="grid md:grid-cols-3 gap-4 md:gap-6 mb-12">
             {[
               { num: "01", title: "Identify & Acquire", desc: "Undervalued properties with strong fundamentals." },
               { num: "02", title: "Develop & Grow", desc: "Build MVPs, drive traffic, establish revenue." },
               { num: "03", title: "Hold or Exit", desc: "Hold cash-flowing assets or sell at multiples." },
             ].map((p) => (
-              <div key={p.num} className="py-8 md:p-10 md:first:pl-0 md:last:pr-0">
-                <p className="text-white/15 text-[10px] font-mono mb-3">{p.num}</p>
+              <div key={p.num} className="glass p-6 md:p-8">
+                <p className="text-white/20 text-[10px] font-mono mb-3">{p.num}</p>
                 <h3 className="text-white text-lg md:text-xl font-bold mb-3">{p.title}</h3>
-                <p className="text-white/30 text-sm leading-relaxed">{p.desc}</p>
+                <p className="text-white/35 text-sm leading-relaxed">{p.desc}</p>
               </div>
             ))}
+          </div>
+          <div className="text-center md:text-left">
+            <Link
+              href="/brands"
+              className="inline-block glass text-white px-8 py-3 text-xs uppercase tracking-[0.25em]"
+            >
+              Our Strategy →
+            </Link>
           </div>
         </div>
       </section>
@@ -251,7 +260,7 @@ export default function Home() {
           </p>
           <Link
             href="/contact"
-            className="inline-block border border-white/30 text-white px-10 py-4 text-xs uppercase tracking-[0.25em] hover:bg-white hover:text-black hover:border-white transition-all duration-300"
+            className="inline-block glass-strong text-white px-10 py-4 text-xs uppercase tracking-[0.25em]"
           >
             Get in Touch
           </Link>
