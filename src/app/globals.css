@@ -90,6 +90,18 @@ body::before {
 ::-webkit-scrollbar-thumb { background: var(--color-text-subtle); }
 ::-webkit-scrollbar-thumb:hover { background: var(--color-text-muted); }
 
+/* ── Select / Dropdown styling ── */
+select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+select:hover { border-color: var(--color-border-strong); }
+select option {
+  background: var(--color-surface);
+  color: var(--color-text-primary);
+}
+
 /* ── Responsive hiders ── */
 @media (min-width: 768px) { .mobile-nav { display: none !important; } }
 @media (max-width: 767px) { .desktop-nav { display: none !important; } }

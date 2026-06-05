@@ -21,13 +21,20 @@ export default function ContactPage() {
         <form action={process.env.FORMSPREE_URL || "https://formspree.io/f/your-form-id"} method="POST" className="space-y-4">
           <input type="text" name="name" placeholder="Name" required className="w-full bg-surface border border-default px-4 py-3 text-primary text-sm focus:outline-none focus:border-primary"/>
           <input type="email" name="email" placeholder="Email" required className="w-full bg-surface border border-default px-4 py-3 text-primary text-sm focus:outline-none focus:border-primary"/>
-          <select name="subject" required className="w-full bg-surface border border-default px-4 py-3 text-primary text-sm focus:outline-none focus:border-primary">
-            <option value="" className="bg-surface">Subject</option>
-            <option value="agency" className="bg-surface">Agency Inquiry</option>
-            <option value="partnership" className="bg-surface">Partnership</option>
-            <option value="brand-asset" className="bg-surface">Brand Asset Offer</option>
-            <option value="general" className="bg-surface">General</option>
-          </select>
+          <div className="relative">
+            <select name="subject" required className="w-full appearance-none bg-surface border border-default px-4 py-3 pr-10 text-primary text-sm focus:outline-none focus:border-primary cursor-pointer transition-colors">
+              <option value="" className="bg-surface">Subject</option>
+              <option value="agency" className="bg-surface">Agency Inquiry</option>
+              <option value="partnership" className="bg-surface">Partnership</option>
+              <option value="brand-asset" className="bg-surface">Brand Asset Offer</option>
+              <option value="general" className="bg-surface">General</option>
+            </select>
+            <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none">
+              <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 1L5 5L9 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-muted"/>
+              </svg>
+            </div>
+          </div>
           <textarea name="message" placeholder="Message" required rows={5} className="w-full bg-surface border border-default px-4 py-3 text-primary text-sm focus:outline-none focus:border-primary resize-none"/>
           <button type="submit" className="w-full border border-primary text-primary py-3 text-xs uppercase tracking-[0.2em]">Send Message</button>
         </form>
@@ -63,13 +70,20 @@ export default function ContactPage() {
                   <input type="text" name="name" placeholder="Name" required className="bg-bg-main border border-default px-4 py-3 text-primary text-sm focus:outline-none focus:border-primary transition-colors"/>
                   <input type="email" name="email" placeholder="Email" required className="bg-bg-main border border-default px-4 py-3 text-primary text-sm focus:outline-none focus:border-primary transition-colors"/>
                 </div>
-                <select name="subject" required className="w-full bg-bg-main border border-default px-4 py-3 text-primary text-sm focus:outline-none focus:border-primary transition-colors">
-                  <option value="" className="bg-bg-main">Select a subject</option>
-                  <option value="agency" className="bg-bg-main">Agency Inquiry</option>
-                  <option value="partnership" className="bg-bg-main">Partnership</option>
-                  <option value="brand-asset" className="bg-bg-main">Brand Asset Offer</option>
-                  <option value="general" className="bg-bg-main">General</option>
-                </select>
+                <div className="relative">
+                  <select name="subject" required className="w-full appearance-none bg-bg-main border border-default px-4 py-3 pr-10 text-primary text-sm focus:outline-none focus:border-primary cursor-pointer transition-colors">
+                    <option value="" className="bg-bg-main">Select a subject</option>
+                    <option value="agency" className="bg-bg-main">Agency Inquiry</option>
+                    <option value="partnership" className="bg-bg-main">Partnership</option>
+                    <option value="brand-asset" className="bg-bg-main">Brand Asset Offer</option>
+                    <option value="general" className="bg-bg-main">General</option>
+                  </select>
+                  <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none">
+                    <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M1 1L5 5L9 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-muted"/>
+                    </svg>
+                  </div>
+                </div>
                 <textarea name="message" placeholder="Message" required rows={6} className="w-full bg-bg-main border border-default px-4 py-3 text-primary text-sm focus:outline-none focus:border-primary transition-colors resize-none"/>
                 <button type="submit" className="border border-primary text-primary px-10 py-3 text-[10px] uppercase tracking-[0.25em] hover:bg-inverse hover:text-primary transition-all duration-200">
                   Send Message
