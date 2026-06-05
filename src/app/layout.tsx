@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import { Inter, JetBrains_Mono } from "next/font/google"
 import Script from "next/script"
+import { ThemeProvider } from "@/providers/ThemeProvider"
 import "./globals.css"
 
 const inter = Inter({
@@ -54,8 +55,10 @@ export default function RootLayout({
       lang="en"
       className={`${inter.variable} ${jetbrainsMono.variable}`}
     >
-      <body className="min-h-screen bg-[#000000] text-[#cccccc] font-sans antialiased">
-        {children}
+      <body className="min-h-screen font-sans antialiased">
+        <ThemeProvider>
+          {children}
+        </ThemeProvider>
         <Script defer data-domain="cocor.tech" src="https://plausible.io/js/script.js" />
       </body>
     </html>

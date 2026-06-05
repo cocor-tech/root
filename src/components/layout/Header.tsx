@@ -3,7 +3,8 @@
 import { useState, useEffect, useCallback } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { Menu, X, Box, Zap, Diamond, BookOpen, FileText, User, Mail, ChevronRight } from "lucide-react"
+import { Menu, X, Sun, Moon, Box, Zap, Diamond, BookOpen, FileText, User, Mail, ChevronRight } from "lucide-react"
+import { useTheme } from "@/providers/ThemeProvider"
 
 const navLinks = [
   { label: "Products", href: "/products", icon: Box },
@@ -19,6 +20,7 @@ export function Header() {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
   const pathname = usePathname()
+  const { theme, toggle } = useTheme()
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40)
@@ -84,15 +86,25 @@ export function Header() {
         </div>
       </header>
 
-      {/* ─── MOBILE HANGING HAMBURGER ─── */}
-      <button
-        onClick={() => setMenuOpen(!menuOpen)}
-        className="mobile-nav fixed right-0 top-1/2 -translate-y-1/2 z-[60] bg-white text-black w-10 h-10 flex items-center justify-center shadow-lg hover:bg-[#ccc]"
-        style={{ transition: "background-color 0.15s ease" }}
-        aria-label={menuOpen ? "Close menu" : "Open menu"}
-      >
-        {menuOpen ? <X size={16} /> : <Menu size={16} />}
-      </button>
+      {/* ─── MOBILE HANGING CONTROLS ─── */}
+      <div className="mobile-nav fixed right-0 top-1/2 -translate-y-1/2 z-[60] flex flex-col items-center gap-1.5">
+        <button
+          onClick={() => setMenuOpen(!menuOpen)}
+          className="w-10 h-10 flex items-center justify-center bg-white text-black shadow-lg hover:bg-[#ccc]"
+          style={{ transition: "background-color 0.15s ease" }}
+          aria-label={menuOpen ? "Close menu" : "Open menu"}
+        >
+          {menuOpen ? <X size={16} /> : <Menu size={16} />}
+        </button>
+        <button
+          onClick={toggle}
+          className="w-10 h-10 flex items-center justify-center bg-white/10 text-white/70 shadow-lg hover:bg-white/20"
+          style={{ transition: "background-color 0.15s ease" }}
+          aria-label="Toggle theme"
+        >
+          {theme === "dark" ? <Sun size={14} /> : <Moon size={14} />}
+        </button>
+      </div>
 
       {/* ─── MOBILE SLIDE-OUT MENU ─── */}
       <div
