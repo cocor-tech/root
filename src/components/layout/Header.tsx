@@ -87,7 +87,7 @@ export function Header() {
       </header>
 
       {/* ─── MOBILE HANGING CONTROLS ─── */}
-      <div className="mobile-nav fixed right-0 top-[45%] -translate-y-1/2 z-[60] flex flex-col items-center gap-1">
+      <div className="mobile-nav fixed right-0 top-[25%] z-[60] flex flex-col items-center gap-1">
         <Link
           href="/"
           className="w-10 h-10 flex items-center justify-center bg-inverse text-primary border border-primary/20 shadow-lg"
