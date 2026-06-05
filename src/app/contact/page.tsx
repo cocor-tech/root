@@ -1,14 +1,7 @@
 import { buildMetadata } from "@/lib/seo"
 import { Metadata } from "next"
 import { PublicLayout } from "@/components/layout/PublicLayout"
-import { Select } from "@/components/shared/Select"
-
-const subjectOptions = [
-  { value: "agency", label: "Agency Inquiry" },
-  { value: "partnership", label: "Partnership" },
-  { value: "brand-asset", label: "Brand Asset Offer" },
-  { value: "general", label: "General" },
-]
+import { ContactForm } from "@/components/shared/ContactForm"
 
 export const metadata: Metadata = buildMetadata({
     title: "Contact",
@@ -26,13 +19,7 @@ export default function ContactPage() {
         <h1 className="text-3xl font-black text-primary mb-4">Get in Touch</h1>
         <p className="text-secondary text-sm mb-8">Agency inquiries, brand offers, or just to say hello.</p>
 
-        <form action={process.env.FORMSPREE_URL || "https://formspree.io/f/your-form-id"} method="POST" className="space-y-4">
-          <input type="text" name="name" placeholder="Name" required className="w-full bg-surface border border-default px-4 py-3 text-primary text-sm focus:outline-none focus:border-primary"/>
-          <input type="email" name="email" placeholder="Email" required className="w-full bg-surface border border-default px-4 py-3 text-primary text-sm focus:outline-none focus:border-primary"/>
-          <Select name="subject" options={subjectOptions} placeholder="Subject" required variant="surface" />
-          <textarea name="message" placeholder="Message" required rows={5} className="w-full bg-surface border border-default px-4 py-3 text-primary text-sm focus:outline-none focus:border-primary resize-none"/>
-          <button type="submit" className="w-full border border-primary text-primary py-3 text-xs uppercase tracking-[0.2em]">Send Message</button>
-        </form>
+        <ContactForm variant="surface" />
 
         <div className="mt-8 border-t border-default pt-6 space-y-3 text-sm">
           <p className="text-muted">Reach us on X: @cocortech</p>
@@ -60,17 +47,7 @@ export default function ContactPage() {
             </div>
 
             <div className="col-span-3 bg-surface p-12">
-              <form action={process.env.FORMSPREE_URL || "https://formspree.io/f/your-form-id"} method="POST" className="space-y-5 max-w-xl">
-                <div className="grid grid-cols-2 gap-5">
-                  <input type="text" name="name" placeholder="Name" required className="bg-bg-main border border-default px-4 py-3 text-primary text-sm focus:outline-none focus:border-primary transition-colors"/>
-                  <input type="email" name="email" placeholder="Email" required className="bg-bg-main border border-default px-4 py-3 text-primary text-sm focus:outline-none focus:border-primary transition-colors"/>
-                </div>
-                <Select name="subject" options={subjectOptions} placeholder="Select a subject" required variant="bg-main" />
-                <textarea name="message" placeholder="Message" required rows={6} className="w-full bg-bg-main border border-default px-4 py-3 text-primary text-sm focus:outline-none focus:border-primary transition-colors resize-none"/>
-                <button type="submit" className="border border-primary text-primary px-10 py-3 text-[10px] uppercase tracking-[0.25em] hover:bg-inverse hover:text-primary transition-all duration-200">
-                  Send Message
-                </button>
-              </form>
+              <ContactForm variant="bg-main" className="max-w-xl" />
             </div>
           </div>
         </div>
