@@ -70,6 +70,7 @@ export default function RootLayout({
       className={`${inter.variable} ${jetbrainsMono.variable}`}
     >
       <head>
+        <meta name="msvalidate.01" content="0CEC0CF1C6E7E072135890257E62E760" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
