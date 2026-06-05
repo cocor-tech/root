@@ -119,7 +119,7 @@ export default function Home() {
               done ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
             }`}
           >
-            An operating company that builds, acquires, and scales digital assets for profit.
+            We operate at the intersection of software engineering, product development, and digital asset investing. We design and ship products, build enterprise grade products for clients, and strategically acquire digital assets — all under one roof.
           </p>
 
           <div
