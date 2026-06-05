@@ -99,7 +99,7 @@ export default function MoistelloPage() {
               href="https://moistello.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block border border-primary text-primary px-10 py-4 text-xs uppercase tracking-[0.15em] hover:bg-inverse hover:text-inverse transition-all duration-200"
+              className="inline-block border border-primary text-primary px-10 py-4 text-xs uppercase tracking-[0.15em] hover:bg-inverse hover:text-primary transition-all duration-200"
             >
               Visit Moistello →
             </a>

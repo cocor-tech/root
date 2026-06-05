@@ -50,7 +50,7 @@ export default function AdminLoginPage() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full border border-primary text-primary px-6 py-3 text-xs uppercase tracking-[0.15em] hover:bg-inverse hover:text-inverse transition-all duration-200 disabled:opacity-50"
+            className="w-full border border-primary text-primary px-6 py-3 text-xs uppercase tracking-[0.15em] hover:bg-inverse hover:text-primary transition-all duration-200 disabled:opacity-50"
           >
             {loading ? "Checking..." : "Sign In"}
           </button>

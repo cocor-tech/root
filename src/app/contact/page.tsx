@@ -69,7 +69,7 @@ export default function ContactPage() {
                   <option value="general" className="bg-bg-main">General</option>
                 </select>
                 <textarea name="message" placeholder="Message" required rows={6} className="w-full bg-bg-main border border-default px-4 py-3 text-primary text-sm focus:outline-none focus:border-primary transition-colors resize-none"/>
-                <button type="submit" className="border border-primary text-primary px-10 py-3 text-[10px] uppercase tracking-[0.25em] hover:bg-inverse hover:text-inverse transition-all duration-200">
+                <button type="submit" className="border border-primary text-primary px-10 py-3 text-[10px] uppercase tracking-[0.25em] hover:bg-inverse hover:text-primary transition-all duration-200">
                   Send Message
                 </button>
               </form>

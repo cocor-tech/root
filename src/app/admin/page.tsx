@@ -292,7 +292,7 @@ export default function AdminDashboard() {
                             onClick={() => loadEditor(section, item.slug)}
                             className={`flex-1 text-left px-3 py-2 text-sm transition-colors ${
                               selectedSection === section && selectedSlug === item.slug
-                                ? "bg-inverse text-inverse"
+                                ? "bg-inverse text-primary"
                                 : "text-secondary hover:bg-surface hover:text-primary"
                             }`}
                           >
@@ -332,7 +332,7 @@ export default function AdminDashboard() {
                 />
                 <button
                   onClick={handleCreate}
-                  className="w-full border border-primary text-primary px-4 py-2 text-xs uppercase tracking-[0.15em] hover:bg-inverse hover:text-inverse transition-all"
+                  className="w-full border border-primary text-primary px-4 py-2 text-xs uppercase tracking-[0.15em] hover:bg-inverse hover:text-primary transition-all"
                 >
                   Create
                 </button>
@@ -384,7 +384,7 @@ export default function AdminDashboard() {
                   <p className="text-muted text-xs font-mono">{selectedSection}/{selectedSlug}.md</p>
                   <button
                     onClick={handleSave}
-                    className="border border-primary text-primary px-6 py-2 text-xs uppercase tracking-[0.15em] hover:bg-inverse hover:text-inverse transition-all"
+                    className="border border-primary text-primary px-6 py-2 text-xs uppercase tracking-[0.15em] hover:bg-inverse hover:text-primary transition-all"
                   >
                     Save
                   </button>

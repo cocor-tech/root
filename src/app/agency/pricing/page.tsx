@@ -50,7 +50,7 @@ export default function PricingPage() {
           </div>
 
           <div className="text-center">
-            <Link href="/contact" className="border border-primary text-primary px-10 py-4 text-xs uppercase tracking-[0.15em] hover:bg-inverse hover:text-inverse transition-all duration-200 inline-block">
+            <Link href="/contact" className="border border-primary text-primary px-10 py-4 text-xs uppercase tracking-[0.15em] hover:bg-inverse hover:text-primary transition-all duration-200 inline-block">
               Get a Quote
             </Link>
           </div>

@@ -73,7 +73,7 @@ export default function AgencyPage() {
                 staff augmentation, and legacy modernization. Enterprise quality at competitive rates.
               </p>
               <div className="flex gap-3">
-                <Link href="/contact" className="border border-primary text-primary px-8 py-3 text-[10px] uppercase tracking-[0.25em] hover:bg-inverse hover:text-inverse transition-all">Start a Project</Link>
+                <Link href="/contact" className="border border-primary text-primary px-8 py-3 text-[10px] uppercase tracking-[0.25em] hover:bg-inverse hover:text-primary transition-all">Start a Project</Link>
                 <Link href="/agency/portfolio" className="border border-default text-secondary px-8 py-3 text-[10px] uppercase tracking-[0.25em] hover:border-primary hover:text-primary transition-all">View Portfolio</Link>
               </div>
             </div>

@@ -34,7 +34,7 @@ export default async function DocsPage({ params }: { params: Promise<{ slug?: st
           <div className="text-center max-w-md px-6">
             <h1 className="text-6xl font-black text-primary mb-4">404</h1>
             <p className="text-secondary mb-6">Doc not found. Create a file in <code className="bg-surface px-2 py-0.5 text-sm font-mono">content/docs/</code> to add it.</p>
-            <Link href="/docs" className="inline-block border border-primary text-primary px-8 py-3 text-xs uppercase tracking-[0.15em] hover:bg-inverse hover:text-inverse transition-all duration-200">
+            <Link href="/docs" className="inline-block border border-primary text-primary px-8 py-3 text-xs uppercase tracking-[0.15em] hover:bg-inverse hover:text-primary transition-all duration-200">
               Back to Docs
             </Link>
           </div>
@@ -61,7 +61,7 @@ export default async function DocsPage({ params }: { params: Promise<{ slug?: st
                     href={`/docs/${d.slug}`}
                     className={`block rounded-none px-3 py-2 text-sm transition-colors ${
                       targetSlug === d.slug
-                        ? "bg-inverse text-inverse font-medium"
+                        ? "bg-inverse text-primary font-medium"
                         : "text-secondary hover:text-primary hover:bg-surface"
                     }`}
                   >

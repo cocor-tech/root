@@ -26,7 +26,7 @@ export default function CareersPage() {
             </p>
             <Link
               href="/contact"
-              className="border border-primary text-primary px-6 py-2 text-xs uppercase tracking-[0.15em] hover:bg-inverse hover:text-inverse transition-all duration-200 inline-block"
+              className="border border-primary text-primary px-6 py-2 text-xs uppercase tracking-[0.15em] hover:bg-inverse hover:text-primary transition-all duration-200 inline-block"
             >
               Get in Touch
             </Link>

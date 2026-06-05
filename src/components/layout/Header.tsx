@@ -76,7 +76,7 @@ export function Header() {
             <div className="flex items-center gap-4">
               <Link
                 href="/contact"
-                className="text-[10px] uppercase tracking-[0.2em] text-primary border border-primary px-4 py-1.5 hover:bg-inverse hover:text-inverse"
+                className="text-[10px] uppercase tracking-[0.2em] text-primary border border-primary px-4 py-1.5 hover:bg-inverse hover:text-primary"
                 style={{ transition: "background-color 0.15s ease, color 0.15s ease" }}
               >
                 Start a Project
@@ -90,7 +90,7 @@ export function Header() {
       <div className="mobile-nav fixed right-0 top-1/2 -translate-y-1/2 z-[60] flex flex-col items-center gap-1">
         <Link
           href="/"
-          className="w-10 h-10 flex items-center justify-center bg-inverse text-inverse border border-primary/20 shadow-lg"
+          className="w-10 h-10 flex items-center justify-center bg-inverse text-primary border border-primary/20 shadow-lg"
           style={{ transition: "background-color 0.15s ease, border-color 0.15s ease" }}
           aria-label="Home"
         >
@@ -98,7 +98,7 @@ export function Header() {
         </Link>
         <button
           onClick={() => setMenuOpen(!menuOpen)}
-          className="w-10 h-10 flex items-center justify-center bg-inverse text-inverse border border-primary/20 shadow-lg"
+          className="w-10 h-10 flex items-center justify-center bg-inverse text-primary border border-primary/20 shadow-lg"
           style={{ transition: "background-color 0.15s ease, border-color 0.15s ease" }}
           aria-label={menuOpen ? "Close menu" : "Open menu"}
         >
@@ -106,7 +106,7 @@ export function Header() {
         </button>
         <button
           onClick={toggle}
-          className="w-10 h-10 flex items-center justify-center bg-inverse text-inverse border border-primary/20 shadow-lg"
+          className="w-10 h-10 flex items-center justify-center bg-inverse text-primary border border-primary/20 shadow-lg"
           style={{ transition: "background-color 0.15s ease, border-color 0.15s ease" }}
           aria-label="Toggle theme"
         >
@@ -139,7 +139,7 @@ export function Header() {
                   onClick={() => setMenuOpen(false)}
                   className={`flex items-center gap-3 px-4 py-3 text-sm ${
                     active
-                      ? "bg-inverse text-inverse"
+                      ? "bg-inverse text-primary"
                       : "text-secondary hover:text-primary hover:bg-surface"
                   }`}
                   style={{ transition: "background-color 0.15s ease, color 0.15s ease" }}
@@ -156,7 +156,7 @@ export function Header() {
             <Link
               href="/contact"
               onClick={() => setMenuOpen(false)}
-              className="block border border-primary text-primary text-center py-3 text-xs uppercase tracking-[0.2em] hover:bg-inverse hover:text-inverse"
+              className="block border border-primary text-primary text-center py-3 text-xs uppercase tracking-[0.2em] hover:bg-inverse hover:text-primary"
               style={{ transition: "background-color 0.15s ease, color 0.15s ease" }}
             >
               Start a Project

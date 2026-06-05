@@ -45,7 +45,7 @@ export default function ProductsPage() {
                 Decentralized savings circles on the Stellar blockchain. Join trustless ROSCAs with USDC/XLM.
               </p>
               <div className="flex gap-3">
-                <Link href="/products/moistello" className="border border-primary text-primary px-6 py-2.5 text-[10px] uppercase tracking-[0.2em] hover:bg-inverse hover:text-inverse transition-all">Overview</Link>
+                <Link href="/products/moistello" className="border border-primary text-primary px-6 py-2.5 text-[10px] uppercase tracking-[0.2em] hover:bg-inverse hover:text-primary transition-all">Overview</Link>
                 <a href="https://moistello.com" target="_blank" rel="noopener noreferrer" className="border border-default text-secondary px-6 py-2.5 text-[10px] uppercase tracking-[0.2em] hover:border-primary hover:text-primary transition-all">Visit Site →</a>
               </div>
             </div>

@@ -58,7 +58,7 @@ export default function Project1Page() {
           </div>
 
           <div className="text-center">
-            <a href="https://moistello.com" target="_blank" rel="noopener noreferrer" className="border border-primary text-primary px-10 py-4 text-xs uppercase tracking-[0.15em] hover:bg-inverse hover:text-inverse transition-all duration-200 inline-block">
+            <a href="https://moistello.com" target="_blank" rel="noopener noreferrer" className="border border-primary text-primary px-10 py-4 text-xs uppercase tracking-[0.15em] hover:bg-inverse hover:text-primary transition-all duration-200 inline-block">
               Visit Live Site →
             </a>
           </div>
