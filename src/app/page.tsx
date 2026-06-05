@@ -79,7 +79,7 @@ export default function Home() {
       {/* ═══ HERO ═══ */}
       <section className="relative min-h-screen flex items-center justify-center px-6 overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.015)_0%,transparent_60%)]" />
-        <div className="w-full max-w-4xl mx-auto text-center md:text-left md:mx-0 relative z-10">
+        <div className="w-full max-w-4xl mx-auto text-left md:text-left md:mx-0 relative z-10">
           <p className="text-primary/30 text-[10px] md:text-[11px] uppercase tracking-[0.3em] mb-6 md:mb-8">
             Cocor Tech
           </p>
