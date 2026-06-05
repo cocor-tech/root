@@ -5,7 +5,6 @@
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
 }
 
-/* ── Base (dark mode defaults) ── */
 * { box-sizing: border-box; }
 
 html {
@@ -13,9 +12,52 @@ html {
   -webkit-font-smoothing: antialiased;
 }
 
+/* ═══ CSS VARIABLES — Dark (default) ═══ */
+:root {
+  --bg: #000000;
+  --surface: #0a0a0a;
+  --elevated: #050505;
+  --text: #ffffff;
+  --text-90: #e0e0e0;
+  --text-70: #b0b0b0;
+  --text-50: #808080;
+  --text-40: #666666;
+  --text-30: #4d4d4d;
+  --text-20: #333333;
+  --text-15: #262626;
+  --border: #1a1a1a;
+  --border-light: #2a2a2a;
+  --glass: rgba(255,255,255,0.03);
+  --glass-strong: rgba(255,255,255,0.05);
+}
+
+/* ═══ CSS VARIABLES — Light ═══ */
+html.light {
+  --bg: #f2f2f2;
+  --surface: #ffffff;
+  --elevated: #e8e8e8;
+  --text: #111111;
+  --text-90: #222222;
+  --text-70: #444444;
+  --text-50: #777777;
+  --text-40: #999999;
+  --text-30: #aaaaaa;
+  --text-20: #cccccc;
+  --text-15: #dddddd;
+  --border: #e0e0e0;
+  --border-light: #d0d0d0;
+  --glass: rgba(255,255,255,0.7);
+  --glass-strong: rgba(255,255,255,0.85);
+}
+
+html.light body::after { display: none; }
+html.light body::before { display: none; }
+html.light ::selection { background: #000000; color: #ffffff; }
+
+/* ── Base ── */
 body {
-  background: #000000;
-  color: #b0b0b0;
+  background: var(--bg);
+  color: var(--text-70);
   font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
   overflow-x: hidden;
   transition: background-color 0.3s ease, color 0.3s ease;
@@ -27,19 +69,17 @@ body {
 body::after {
   content: "";
   position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: repeating-linear-gradient(
-    0deg, transparent, transparent 2px, rgba(255,255,255,0.015) 2px, rgba(255,255,255,0.015) 4px
-  );
+  inset: 0;
+  background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(255,255,255,0.015) 2px, rgba(255,255,255,0.015) 4px);
   pointer-events: none;
   z-index: 9999;
 }
 
-/* ── Subtle grain ── */
+/* ── Grain ── */
 body::before {
   content: "";
   position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
+  inset: 0;
   opacity: 0.035;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   background-repeat: repeat;
@@ -48,31 +88,12 @@ body::before {
   z-index: 9998;
 }
 
-/* ── Light mode ── */
-html.light body {
-  background: #f5f5f5;
-  color: #444444;
-}
-
-html.light ::selection { background: #000000; color: #ffffff; }
-
-html.light body::after { display: none; }
-html.light body::before { display: none; }
-
-html.light ::-webkit-scrollbar-track { background: #f5f5f5; }
-html.light ::-webkit-scrollbar-thumb { background: #ccc; }
-html.light ::-webkit-scrollbar-thumb:hover { background: #999; }
-
-/* ── Scrollbar (dark) ── */
+/* ── Scrollbar ── */
 ::-webkit-scrollbar { width: 2px; }
-::-webkit-scrollbar-track { background: #000000; }
-::-webkit-scrollbar-thumb { background: #333; }
-::-webkit-scrollbar-thumb:hover { background: #555; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--text-20); }
+::-webkit-scrollbar-thumb:hover { background: var(--text-30); }
 
 /* ── Responsive hiders ── */
-@media (min-width: 768px) {
-  .mobile-nav { display: none !important; }
-}
-@media (max-width: 767px) {
-  .desktop-nav { display: none !important; }
-}
+@media (min-width: 768px) { .mobile-nav { display: none !important; } }
+@media (max-width: 767px) { .desktop-nav { display: none !important; } }
