@@ -27,7 +27,7 @@ export function Footer() {
         <div className="border-t border-default pt-4 flex justify-between text-[10px] text-subtle">
           <span>&copy; {new Date().getFullYear()} Cocor Tech</span>
           <div className="flex gap-4">
-            <a href="https://x.com/moistello" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">X</a>
+            <a href="https://x.com/cocortech" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">X</a>
             <a href="https://github.com/cocor-tech" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">GH</a>
           </div>
         </div>
@@ -104,7 +104,7 @@ export function Footer() {
             &copy; {new Date().getFullYear()} Cocor Tech. All rights reserved.
           </p>
           <div className="flex gap-6">
-            <a href="https://x.com/moistello" target="_blank" rel="noopener noreferrer" className="text-muted hover:text-primary text-[10px] uppercase tracking-[0.15em] transition-colors">
+            <a href="https://x.com/cocortech" target="_blank" rel="noopener noreferrer" className="text-muted hover:text-primary text-[10px] uppercase tracking-[0.15em] transition-colors">
               Twitter / X
             </a>
             <a href="https://github.com/cocor-tech" target="_blank" rel="noopener noreferrer" className="text-muted hover:text-primary text-[10px] uppercase tracking-[0.15em] transition-colors">

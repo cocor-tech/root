@@ -1,11 +1,13 @@
+import { buildMetadata } from "@/lib/seo"
 import { Metadata } from "next"
 import { PublicLayout } from "@/components/layout/PublicLayout"
 
-export const metadata: Metadata = {
-  title: "Contact — Cocor Tech",
-  description: "Get in touch with Cocor Tech. Agency inquiries, partnership opportunities, brand asset offers, or general questions.",
-  alternates: { canonical: "/contact" },
-}
+export const metadata: Metadata = buildMetadata({
+    title: "Contact",
+    description: "Get in touch with Cocor Tech. Agency inquiries, partnership opportunities, brand asset offers, or general questions.",
+    slug: "contact",
+    keywords: "contact cocor tech, software agency inquiry, partnership",
+  })
 
 export default function ContactPage() {
   return (

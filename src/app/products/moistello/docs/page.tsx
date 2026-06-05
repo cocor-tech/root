@@ -1,10 +1,13 @@
+import { buildMetadata } from "@/lib/seo"
 import { Metadata } from "next"
 import { PublicLayout } from "@/components/layout/PublicLayout"
 
-export const metadata: Metadata = {
-  title: "Docs — Moistello — Cocor Tech",
-  description: "Moistello documentation index — getting started, API reference, smart contracts, circles guide, reputation system, wallet setup, and security.",
-}
+export const metadata: Metadata = buildMetadata({
+    title: "Docs — Moistello",
+    description: "Moistello documentation index — getting started, API reference, smart contracts, circles guide, reputation system, wallet setup, and security.",
+    slug: "products/moistello/docs",
+    keywords: "moistello documentation, API reference, smart contracts",
+  })
 
 const links = [
   { title: "Getting Started", href: "https://moistello.com/docs/getting-started" },

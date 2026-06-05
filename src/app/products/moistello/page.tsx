@@ -1,12 +1,14 @@
+import { buildMetadata } from "@/lib/seo"
 import Link from "next/link"
 import { Metadata } from "next"
 import { PublicLayout } from "@/components/layout/PublicLayout"
 
-export const metadata: Metadata = {
-  title: "Moistello — Cocor Tech Products",
-  description: "Decentralized savings circles on the Stellar blockchain. Trustless ROSCAs with USDC/XLM, MoiScore reputation, and sub-cent fees.",
-  alternates: { canonical: "/products/moistello" },
-}
+export const metadata: Metadata = buildMetadata({
+    title: "Moistello",
+    description: "Decentralized savings circles on the Stellar blockchain. Trustless ROSCAs with USDC/XLM, MoiScore reputation, and sub-cent fees.",
+    slug: "products/moistello",
+    keywords: "moistello, stellar savings, ROSCA, decentralized finance",
+  })
 
 export default function MoistelloPage() {
   return (

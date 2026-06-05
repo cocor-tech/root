@@ -1,25 +1,19 @@
 import path from "path"
-import { Metadata } from "next"
+import { buildMetadata } from "./seo"
 import { loadContent } from "./content"
 import { mdToHtml } from "./markdown"
 
 const CONTENT_DIR = path.join(process.cwd(), "content/pages")
 
-export function contentMetadata(slug: string): Metadata {
+export function contentMetadata(slug: string) {
   const doc = loadContent(CONTENT_DIR, slug)
   if (!doc) return { title: "Not Found — Cocor Tech" }
-
-  return {
-    title: `${doc.meta.title} — Cocor Tech`,
+  return buildMetadata({
+    title: doc.meta.title,
     description: doc.meta.description,
-    alternates: { canonical: `/${slug === "index" ? "" : slug}` },
-    openGraph: {
-      title: `${doc.meta.title} — Cocor Tech`,
-      description: doc.meta.description,
-      url: `https://cocor.tech/${slug === "index" ? "" : slug}`,
-      siteName: "Cocor Tech",
-    },
-  }
+    slug: slug === "index" ? "" : slug,
+    keywords: `${doc.meta.title.toLowerCase()}, cocor tech, digital assets`,
+  })
 }
 
 export function getContentHTML(slug: string): string | null {

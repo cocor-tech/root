@@ -4,36 +4,34 @@ import { Metadata } from "next"
 import { notFound } from "next/navigation"
 import { PublicLayout } from "@/components/layout/PublicLayout"
 import { listContent } from "@/lib/content"
+import { buildMetadata } from "@/lib/seo"
 
 const BLOG_DIR = path.join(process.cwd(), "content/blog")
 
 export async function generateMetadata({ params }: { params: Promise<{ category: string }> }): Promise<Metadata> {
   const { category } = await params
-  return {
-    title: `${category.charAt(0).toUpperCase() + category.slice(1)} — Cocor Tech Blog`,
-    description: `Articles about ${category} from Cocor Tech.`,
-    robots: { index: true, follow: true },
-  }
+  return buildMetadata({
+    title: `${category.charAt(0).toUpperCase() + category.slice(1)} Articles`,
+    description: `Articles about ${category} from Cocor Tech — engineering, business, and digital asset insights.`,
+    slug: `blog/category/${category}`,
+    keywords: `${category}, cocor tech blog, digital assets`,
+  })
 }
 
 export default async function BlogCategoryPage({ params }: { params: Promise<{ category: string }> }) {
   const { category } = await params
   const categoryDir = path.join(BLOG_DIR, category)
-
   const posts = listContent(categoryDir)
 
-  if (posts.length === 0) {
-    notFound()
-  }
+  if (posts.length === 0) notFound()
 
   return (
     <PublicLayout>
       <div className="min-h-screen pt-32 pb-24">
         <div className="max-w-4xl mx-auto px-6">
           <p className="text-muted text-[10px] uppercase tracking-[0.2em] mb-4">/ Blog / {category}</p>
-          <h1 className="text-5xl md:text-6xl font-black text-primary mb-2 capitalize">{category}</h1>
+          <h1 className="text-5xl md:text-7xl font-black text-primary mb-2 capitalize">{category}</h1>
           <p className="text-secondary text-sm max-w-lg mb-12">Articles about {category} from Cocor Tech.</p>
-
           <div className="space-y-4">
             {posts.map((post) => (
               <article key={post.slug} className="border border-default bg-surface p-6 hover:border-strong transition-colors">

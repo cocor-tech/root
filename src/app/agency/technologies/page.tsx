@@ -1,10 +1,13 @@
+import { buildMetadata } from "@/lib/seo"
 import { Metadata } from "next"
 import { PublicLayout } from "@/components/layout/PublicLayout"
 
-export const metadata: Metadata = {
-  title: "Technologies — Cocor Tech Agency",
-  description: "Technologies we use at Cocor Tech Agency — Next.js, React, TypeScript, Go, Rust, Stellar/Soroban, PostgreSQL, Redis, Docker, and more.",
-}
+export const metadata: Metadata = buildMetadata({
+    title: "Technologies",
+    description: "Technologies we use at Cocor Tech Agency — Next.js, React, TypeScript, Go, Rust, Stellar/Soroban, PostgreSQL, Redis, Docker, and more.",
+    slug: "agency/technologies",
+    keywords: "tech stack, Next.js, React, Go, Rust, Stellar, Soroban",
+  })
 
 const categories = [
   {

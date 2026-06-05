@@ -1,10 +1,13 @@
+import { buildMetadata } from "@/lib/seo"
 import { Metadata } from "next"
 import { PublicLayout } from "@/components/layout/PublicLayout"
 
-export const metadata: Metadata = {
-  title: "FAQ — Moistello — Cocor Tech",
-  description: "Frequently asked questions about Moistello, Stellar savings circles, MoiScore, and how decentralized ROSCAs work.",
-}
+export const metadata: Metadata = buildMetadata({
+    title: "FAQ — Moistello",
+    description: "Frequently asked questions about Moistello, Stellar savings circles, MoiScore, and how decentralized ROSCAs work.",
+    slug: "products/moistello/faq",
+    keywords: "moistello FAQ, ROSCA questions, stellar savings",
+  })
 
 const faqs = [
   { q: "What is a ROSCA?", a: "A Rotating Savings and Credit Association. A group of people who contribute money regularly and take turns receiving the pooled amount." },

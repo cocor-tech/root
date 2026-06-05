@@ -1,11 +1,14 @@
+import { buildMetadata } from "@/lib/seo"
 import { Metadata } from "next"
 import Link from "next/link"
 import { PublicLayout } from "@/components/layout/PublicLayout"
 
-export const metadata: Metadata = {
-  title: "Portfolio — Cocor Tech Agency",
-  description: "Selected projects from Cocor Tech Agency — custom software, MVPs, and digital products we've built.",
-}
+export const metadata: Metadata = buildMetadata({
+    title: "Portfolio",
+    description: "Selected projects from Cocor Tech Agency — custom software, MVPs, and digital products we have built.",
+    slug: "agency/portfolio",
+    keywords: "software portfolio, case studies, web development projects",
+  })
 
 export default function PortfolioPage() {
   return (

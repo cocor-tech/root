@@ -1,10 +1,13 @@
+import { buildMetadata } from "@/lib/seo"
 import { Metadata } from "next"
 import { PublicLayout } from "@/components/layout/PublicLayout"
 
-export const metadata: Metadata = {
-  title: "Process — Cocor Tech Agency",
-  description: "How Cocor Tech Agency delivers projects — from discovery and design to development, deployment, and ongoing support.",
-}
+export const metadata: Metadata = buildMetadata({
+    title: "Process",
+    description: "How Cocor Tech Agency delivers projects — from discovery and design to development, deployment, and ongoing support.",
+    slug: "agency/process",
+    keywords: "software development process, agile, delivery pipeline",
+  })
 
 const steps = [
   { num: "01", title: "Discovery", desc: "We learn about your business, goals, and technical requirements. Deliverable: project brief and estimated timeline." },

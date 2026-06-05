@@ -1,11 +1,14 @@
+import { buildMetadata } from "@/lib/seo"
 import { Metadata } from "next"
 import Link from "next/link"
 import { PublicLayout } from "@/components/layout/PublicLayout"
 
-export const metadata: Metadata = {
-  title: "Project 2 — Cocor Tech Agency Portfolio",
-  description: "Custom software development project by Cocor Tech Agency. Details available on request.",
-}
+export const metadata: Metadata = buildMetadata({
+    title: "Client Project — Agency Portfolio",
+    description: "Custom software development project by Cocor Tech Agency. Details available on request.",
+    slug: "agency/portfolio/project-2",
+    keywords: "software project, client work, agency portfolio",
+  })
 
 export default function Project2Page() {
   return (

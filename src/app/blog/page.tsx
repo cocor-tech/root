@@ -1,14 +1,16 @@
+import { buildMetadata } from "@/lib/seo"
 import Link from "next/link"
 import path from "path"
 import { Metadata } from "next"
 import { PublicLayout } from "@/components/layout/PublicLayout"
 import { listContentRecursive } from "@/lib/content"
 
-export const metadata: Metadata = {
-  title: "Blog — Cocor Tech",
-  description: "Insights on engineering, business, digital asset investing, and company building from Cocor Tech.",
-  alternates: { canonical: "/blog" },
-}
+export const metadata: Metadata = buildMetadata({
+    title: "Blog",
+    description: "Insights on engineering, business, digital asset investing, and company building from Cocor Tech.",
+    slug: "blog",
+    keywords: "blog, engineering, business, digital assets, cocor tech",
+  })
 
 const BLOG_DIR = path.join(process.cwd(), "content/blog")
 

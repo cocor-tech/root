@@ -1,11 +1,14 @@
+import { buildMetadata } from "@/lib/seo"
 import { Metadata } from "next"
 import Link from "next/link"
 import { PublicLayout } from "@/components/layout/PublicLayout"
 
-export const metadata: Metadata = {
-  title: "Project 1 — Moistello — Cocor Tech Agency Portfolio",
-  description: "Moistello: a decentralized savings platform on the Stellar blockchain. Built by Cocor Tech Agency.",
-}
+export const metadata: Metadata = buildMetadata({
+    title: "Moistello — Agency Portfolio",
+    description: "Moistello: a decentralized savings platform on the Stellar blockchain. A full-stack case study by Cocor Tech Agency.",
+    slug: "agency/portfolio/project-1",
+    keywords: "moistello case study, stellar blockchain project",
+  })
 
 export default function Project1Page() {
   return (

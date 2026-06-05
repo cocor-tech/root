@@ -1,12 +1,14 @@
+import { buildMetadata } from "@/lib/seo"
 import Link from "next/link"
 import { Metadata } from "next"
 import { PublicLayout } from "@/components/layout/PublicLayout"
 
-export const metadata: Metadata = {
-  title: "Brand Assets — Cocor Tech",
-  description: "Cocor Tech acquires, develops, and scales digital properties.",
-  alternates: { canonical: "/brands" },
-}
+export const metadata: Metadata = buildMetadata({
+    title: "Brand Assets",
+    description: "Cocor Tech acquires, develops, and scales digital properties. Premium domains, established brands, niche businesses.",
+    slug: "brands",
+    keywords: "brand assets, digital properties, domain investing",
+  })
 
 const phases = [
   { num: "01", title: "Identify & Acquire", desc: "Undervalued digital properties with strong fundamentals." },

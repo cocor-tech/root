@@ -1,10 +1,13 @@
+import { buildMetadata } from "@/lib/seo"
 import { Metadata } from "next"
 import { PublicLayout } from "@/components/layout/PublicLayout"
 
-export const metadata: Metadata = {
-  title: "Philosophy — Brand Assets — Cocor Tech",
-  description: "Why Cocor Tech invests in brand assets. Our philosophy on digital real estate, brand value, and long-term wealth creation.",
-}
+export const metadata: Metadata = buildMetadata({
+    title: "Philosophy — Brand Assets",
+    description: "Why Cocor Tech invests in brand assets. Our philosophy on digital real estate, brand value, and long-term wealth creation.",
+    slug: "brands/philosophy",
+    keywords: "brand asset philosophy, digital real estate, investing",
+  })
 
 export default function PhilosophyPage() {
   return (

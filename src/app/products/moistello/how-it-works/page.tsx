@@ -1,10 +1,13 @@
+import { buildMetadata } from "@/lib/seo"
 import { Metadata } from "next"
 import { PublicLayout } from "@/components/layout/PublicLayout"
 
-export const metadata: Metadata = {
-  title: "How It Works — Moistello — Cocor Tech",
-  description: "Learn how Moistello works: connect your wallet, join or create a savings circle, contribute USDC/XLM, receive payouts, and build MoiScore.",
-}
+export const metadata: Metadata = buildMetadata({
+    title: "How It Works — Moistello",
+    description: "Learn how Moistello works: connect your wallet, join or create a savings circle, contribute USDC/XLM, receive payouts, and build MoiScore.",
+    slug: "products/moistello/how-it-works",
+    keywords: "moistello how it works, savings circles, stellar wallet",
+  })
 
 export default function HowItWorksPage() {
   return (

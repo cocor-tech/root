@@ -1,10 +1,13 @@
+import { buildMetadata } from "@/lib/seo"
 import { Metadata } from "next"
 import { PublicLayout } from "@/components/layout/PublicLayout"
 
-export const metadata: Metadata = {
-  title: "Roadmap — Cocor Tech Products",
-  description: "Cocor Tech product roadmap — upcoming features and products.",
-}
+export const metadata: Metadata = buildMetadata({
+    title: "Roadmap — Cocor Tech Products",
+    description: "Cocor Tech product roadmap — upcoming features and products.",
+    slug: "products/roadmap",
+    keywords: "cocor tech roadmap, product development, roadmap",
+  })
 
 export default function RoadmapPage() {
   return (

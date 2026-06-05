@@ -1,11 +1,14 @@
+import { buildMetadata } from "@/lib/seo"
 import { Metadata } from "next"
 import Link from "next/link"
 import { PublicLayout } from "@/components/layout/PublicLayout"
 
-export const metadata: Metadata = {
-  title: "Custom Software Development — Cocor Tech Agency",
-  description: "Cocor Tech builds custom software — full-stack applications, APIs, internal tools, and platforms tailored to your business needs.",
-}
+export const metadata: Metadata = buildMetadata({
+    title: "Custom Software Development",
+    description: "Cocor Tech builds custom software — full-stack applications, APIs, internal tools, and platforms tailored to your business needs.",
+    slug: "agency/services/custom-software-development",
+    keywords: "custom software development, software agency, web development",
+  })
 
 export default function CustomSoftwarePage() {
   return (

@@ -1,11 +1,14 @@
+import { buildMetadata } from "@/lib/seo"
 import { Metadata } from "next"
 import Link from "next/link"
 import { PublicLayout } from "@/components/layout/PublicLayout"
 
-export const metadata: Metadata = {
-  title: "Legacy Modernization — Cocor Tech Agency",
-  description: "Upgrade aging systems to modern stacks. Reduce technical debt, improve performance, and enable faster feature development.",
-}
+export const metadata: Metadata = buildMetadata({
+    title: "Legacy Modernization",
+    description: "Upgrade aging systems to modern stacks. Reduce technical debt, improve performance, and enable faster feature development.",
+    slug: "agency/services/legacy-modernization",
+    keywords: "legacy modernization, system upgrade, technical debt",
+  })
 
 export default function LegacyModPage() {
   return (

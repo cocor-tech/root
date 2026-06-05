@@ -1,12 +1,14 @@
+import { buildMetadata } from "@/lib/seo"
 import Link from "next/link"
 import { Metadata } from "next"
 import { PublicLayout } from "@/components/layout/PublicLayout"
 
-export const metadata: Metadata = {
-  title: "Agency — Cocor Tech",
-  description: "Cocor Tech Agency builds custom software, MVPs, staff augmentation, and legacy modernization for companies worldwide.",
-  alternates: { canonical: "/agency" },
-}
+export const metadata: Metadata = buildMetadata({
+    title: "Agency",
+    description: "Cocor Tech Agency builds custom software, MVPs, staff augmentation, and legacy modernization for companies worldwide.",
+    slug: "agency",
+    keywords: "software agency, custom development, MVP, staff augmentation",
+  })
 
 const services = [
   { title: "Custom Software Development", range: "From $20K", href: "/agency/services/custom-software-development" },

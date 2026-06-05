@@ -1,10 +1,13 @@
+import { buildMetadata } from "@/lib/seo"
 import { Metadata } from "next"
 import { PublicLayout } from "@/components/layout/PublicLayout"
 
-export const metadata: Metadata = {
-  title: "Features — Moistello — Cocor Tech",
-  description: "Moistello features: 4 payout types, 4 circle types, MoiScore reputation, multi-wallet support, smart contract security.",
-}
+export const metadata: Metadata = buildMetadata({
+    title: "Features — Moistello",
+    description: "Moistello features: 4 payout types, 4 circle types, MoiScore reputation, multi-wallet support, smart contract security.",
+    slug: "products/moistello/features",
+    keywords: "moistello features, payout modes, MoiScore, savings",
+  })
 
 export default function FeaturesPage() {
   const features = [

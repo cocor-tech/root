@@ -1,10 +1,13 @@
+import { buildMetadata } from "@/lib/seo"
 import { Metadata } from "next"
 import { PublicLayout } from "@/components/layout/PublicLayout"
 
-export const metadata: Metadata = {
-  title: "Exit Strategy — Brand Assets — Cocor Tech",
-  description: "How Cocor Tech exits brand assets — when we sell, how we package, valuation multiples, and sale channels.",
-}
+export const metadata: Metadata = buildMetadata({
+    title: "Exit Strategy",
+    description: "How Cocor Tech exits brand assets — when we sell, how we package, valuation multiples, and sale channels.",
+    slug: "brands/exit-strategy",
+    keywords: "exit strategy, sell website, digital asset valuation",
+  })
 
 export default function ExitStrategyPage() {
   return (

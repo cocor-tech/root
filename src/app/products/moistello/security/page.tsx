@@ -1,10 +1,13 @@
+import { buildMetadata } from "@/lib/seo"
 import { Metadata } from "next"
 import { PublicLayout } from "@/components/layout/PublicLayout"
 
-export const metadata: Metadata = {
-  title: "Security — Moistello — Cocor Tech",
-  description: "Moistello security architecture — smart contract security, access control, pause mechanism, and bug bounty program.",
-}
+export const metadata: Metadata = buildMetadata({
+    title: "Security — Moistello",
+    description: "Moistello security architecture — smart contract security, access control, pause mechanism, and bug bounty program.",
+    slug: "products/moistello/security",
+    keywords: "moistello security, smart contract audit, DeFi security",
+  })
 
 export default function SecurityPage() {
   return (

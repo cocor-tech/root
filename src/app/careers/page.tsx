@@ -1,12 +1,14 @@
+import { buildMetadata } from "@/lib/seo"
 import { Metadata } from "next"
 import Link from "next/link"
 import { PublicLayout } from "@/components/layout/PublicLayout"
 
-export const metadata: Metadata = {
-  title: "Careers — Cocor Tech",
-  description: "Join Cocor Tech. We're building digital assets for the long term. Remote-first, ambitious, and always building.",
-  alternates: { canonical: "/careers" },
-}
+export const metadata: Metadata = buildMetadata({
+    title: "Careers",
+    description: "Join Cocor Tech. We are building digital assets for the long term. Remote-first, ambitious, and always building.",
+    slug: "careers",
+    keywords: "careers, software jobs, remote work, cocor tech",
+  })
 
 export default function CareersPage() {
   return (

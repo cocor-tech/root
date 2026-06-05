@@ -1,11 +1,14 @@
+import { buildMetadata } from "@/lib/seo"
 import { Metadata } from "next"
 import Link from "next/link"
 import { PublicLayout } from "@/components/layout/PublicLayout"
 
-export const metadata: Metadata = {
-  title: "MVP Development — Cocor Tech Agency",
-  description: "From idea to working product in 4-12 weeks. Cocor Tech builds MVPs fast — rapid iteration, validated learning, production-ready code.",
-}
+export const metadata: Metadata = buildMetadata({
+    title: "MVP Development",
+    description: "From idea to working product in 4-12 weeks. Cocor Tech builds MVPs fast — rapid iteration, validated learning, production-ready code.",
+    slug: "agency/services/mvp-development",
+    keywords: "MVP development, minimum viable product, rapid prototyping",
+  })
 
 export default function MVPPage() {
   return (

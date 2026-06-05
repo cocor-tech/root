@@ -1,12 +1,14 @@
+import { buildMetadata } from "@/lib/seo"
 import Link from "next/link"
 import { Metadata } from "next"
 import { PublicLayout } from "@/components/layout/PublicLayout"
 
-export const metadata: Metadata = {
-  title: "Products — Cocor Tech",
-  description: "Cocor Tech builds digital products. Our flagship is Moistello, a decentralized savings platform on the Stellar blockchain.",
-  alternates: { canonical: "/products" },
-}
+export const metadata: Metadata = buildMetadata({
+    title: "Products",
+    description: "Cocor Tech builds digital products. Our flagship is Moistello, a decentralized savings platform on the Stellar blockchain.",
+    slug: "products",
+    keywords: "products, cocor tech, digital assets, software",
+  })
 
 export default function ProductsPage() {
   return (

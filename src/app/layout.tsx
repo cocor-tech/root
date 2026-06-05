@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import { Inter, JetBrains_Mono } from "next/font/google"
 import Script from "next/script"
 import { ThemeProvider } from "@/providers/ThemeProvider"
+import { organizationSchema, websiteSchema } from "@/lib/jsonld"
 import "./globals.css"
 
 const inter = Inter({
@@ -18,7 +19,10 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://cocor.tech"),
-  title: "Cocor Tech — Build. Acquire. Scale.",
+  title: {
+    default: "Cocor Tech — Build. Acquire. Scale.",
+    template: "%s — Cocor Tech",
+  },
   description:
     "An operating company that builds, acquires, and scales digital assets for profit.",
   keywords: "cocor tech, digital assets, software agency, brand investing, stellar, blockchain",
@@ -46,6 +50,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
+    site: "@cocortech",
+    creator: "@cocortech",
     title: "Cocor Tech — Build. Acquire. Scale.",
     description:
       "An operating company that builds, acquires, and scales digital assets for profit.",
@@ -63,6 +69,20 @@ export default function RootLayout({
       lang="en"
       className={`${inter.variable} ${jetbrainsMono.variable}`}
     >
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(organizationSchema()),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(websiteSchema()),
+          }}
+        />
+      </head>
       <body className="min-h-screen font-sans antialiased">
         <ThemeProvider>
           {children}

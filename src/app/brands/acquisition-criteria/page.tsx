@@ -1,11 +1,14 @@
+import { buildMetadata } from "@/lib/seo"
 import { Metadata } from "next"
 import Link from "next/link"
 import { PublicLayout } from "@/components/layout/PublicLayout"
 
-export const metadata: Metadata = {
-  title: "Acquisition Criteria — Brand Assets — Cocor Tech",
-  description: "What Cocor Tech looks for when acquiring digital properties — traffic, revenue, niche, domain quality, and more.",
-}
+export const metadata: Metadata = buildMetadata({
+    title: "Acquisition Criteria",
+    description: "What Cocor Tech looks for when acquiring digital properties — traffic, revenue, niche, domain quality, and more.",
+    slug: "brands/acquisition-criteria",
+    keywords: "acquisition criteria, buy websites, digital property",
+  })
 
 export default function AcquisitionCriteriaPage() {
   return (

@@ -1,11 +1,14 @@
+import { buildMetadata } from "@/lib/seo"
 import { Metadata } from "next"
 import Link from "next/link"
 import { PublicLayout } from "@/components/layout/PublicLayout"
 
-export const metadata: Metadata = {
-  title: "Staff Augmentation — Cocor Tech Agency",
-  description: "Senior engineers integrated into your team. Monthly retainer, full-time dedication, Nigeria-based with global delivery.",
-}
+export const metadata: Metadata = buildMetadata({
+    title: "Staff Augmentation",
+    description: "Senior engineers integrated into your team. Monthly retainer, full-time dedication, Nigeria-based with global delivery.",
+    slug: "agency/services/staff-augmentation",
+    keywords: "staff augmentation, hire developers, remote engineers",
+  })
 
 export default function StaffAugPage() {
   return (

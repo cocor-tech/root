@@ -1,10 +1,13 @@
+import { buildMetadata } from "@/lib/seo"
 import { Metadata } from "next"
 import { PublicLayout } from "@/components/layout/PublicLayout"
 
-export const metadata: Metadata = {
-  title: "Portfolio — Brand Assets — Cocor Tech",
-  description: "Cocor Tech's brand asset portfolio — premium domains and digital properties we own and operate.",
-}
+export const metadata: Metadata = buildMetadata({
+    title: "Portfolio — Brand Assets",
+    description: "Cocor Tech brand asset portfolio — premium domains and digital properties we own and operate.",
+    slug: "brands/portfolio",
+    keywords: "brand portfolio, owned domains, digital assets",
+  })
 
 export default function BrandPortfolioPage() {
   return (
