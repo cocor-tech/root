@@ -1,36 +1,48 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Cocor Tech
+
+An operating company that builds, acquires, and scales digital assets for profit.
+
+Built with Next.js 16, Tailwind CSS v4, and a file-based content system (markdown).
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
+cp .env.example .env
+# Set ADMIN_PASSWORD in .env
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+src/app/          # Next.js routes
+content/          # Markdown files (pages, docs, blog posts)
+src/lib/          # Content loading, markdown conversion, auth
+src/components/   # UI components
+```
 
-## Learn More
+## Adding Content
 
-To learn more about Next.js, take a look at the following resources:
+Create `.md` files with YAML frontmatter in `content/`:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- `content/pages/` → Static pages (/about, /vision, etc.)
+- `content/docs/` → Documentation (/docs/*)
+- `content/blog/` → Blog posts (/blog/*)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Or use the admin panel at `/admin` (set `ADMIN_PASSWORD` in `.env`).
 
-## Deploy on Vercel
+## Build
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+npm run build
+npm start
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Deploy to Vercel
+
+See [DEPLOY.md](./DEPLOY.md) for full instructions.
+
+Push to GitHub, import to Vercel — done. Content is managed via git for production. The admin panel (`/admin`) only works in local development (Vercel's filesystem is read-only).

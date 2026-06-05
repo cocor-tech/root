@@ -1,0 +1,23 @@
+"use client"
+
+export default function Error({
+  reset,
+}: {
+  error: Error & { digest?: string }
+  reset: () => void
+}) {
+  return (
+    <div className="min-h-screen flex items-center justify-center">
+      <div className="text-center max-w-md px-6">
+        <h1 className="text-6xl font-black text-white mb-4">Error</h1>
+        <p className="text-[#888] mb-6">Something went wrong.</p>
+        <button
+          onClick={reset}
+          className="border border-white text-white px-8 py-3 text-xs uppercase tracking-[0.15em] hover:bg-white hover:text-black transition-all duration-200"
+        >
+          Try Again
+        </button>
+      </div>
+    </div>
+  )
+}

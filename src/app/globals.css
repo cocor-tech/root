@@ -1,26 +1,150 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  --color-void: #000000;
+  --color-surface: #050505;
+  --color-elevated: #0a0a0a;
+  --color-card: #0d0d0d;
+  --color-border: #1a1a1a;
+  --color-border-bright: #2a2a2a;
+  --color-text-primary: #ffffff;
+  --color-text-body: #b0b0b0;
+  --color-text-secondary: #707070;
+  --color-text-muted: #404040;
+  --color-accent: #ffffff;
+  --color-terminal: #00ff41;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+/* ── Base ── */
+* { box-sizing: border-box; }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: auto;
+  -webkit-font-smoothing: antialiased;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: #000000;
+  color: #b0b0b0;
+  font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
+  overflow-x: hidden;
+}
+
+::selection { background: #ffffff; color: #000000; }
+
+/* ── Scanline overlay ── */
+body::after {
+  content: "";
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(255,255,255,0.015) 2px,
+    rgba(255,255,255,0.015) 4px
+  );
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* ── Subtle grain ── */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px 256px;
+  pointer-events: none;
+  z-index: 9998;
+}
+
+/* ── Infinite grid background (desktop only) ── */
+@layer components {
+  .grid-bg {
+    background-image:
+      linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+    background-size: 80px 80px;
+  }
+}
+
+/* ── Futuristic panel ── */
+@layer components {
+  .panel {
+    background: #0a0a0a;
+    border: 1px solid #1a1a1a;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+  .panel:hover {
+    border-color: #2a2a2a;
+    box-shadow: 0 0 60px rgba(255,255,255,0.02);
+  }
+  .panel-active {
+    border-color: #ffffff;
+    background: #ffffff;
+    color: #000000;
+  }
+}
+
+/* ── Glitch text effect (desktop hover) ── */
+@layer components {
+  .glitch-hover {
+    position: relative;
+    display: inline-block;
+  }
+  .glitch-hover:hover::before,
+  .glitch-hover:hover::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+  }
+  .glitch-hover:hover::before {
+    clip-path: inset(0 0 60% 0);
+    transform: translateX(-2px);
+    color: rgba(255,255,255,0.6);
+    animation: glitch-shift 0.3s ease infinite alternate;
+  }
+  .glitch-hover:hover::after {
+    clip-path: inset(60% 0 0 0);
+    transform: translateX(2px);
+    color: rgba(255,255,255,0.6);
+    animation: glitch-shift 0.3s ease infinite alternate-reverse;
+  }
+  @keyframes glitch-shift {
+    0% { transform: translateX(-2px); }
+    100% { transform: translateX(2px); }
+  }
+}
+
+/* ── Architectural label ── */
+@layer components {
+  .arch-label {
+    font-size: 0.625rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #404040;
+  }
+}
+
+/* ── Custom scrollbar ── */
+::-webkit-scrollbar { width: 2px; }
+::-webkit-scrollbar-track { background: #000000; }
+::-webkit-scrollbar-thumb { background: #333; }
+::-webkit-scrollbar-thumb:hover { background: #555; }
+
+/* ── Hide mobile bottom nav on desktop ── */
+@media (min-width: 768px) {
+  .mobile-nav { display: none !important; }
+}
+/* ── Hide desktop top nav on mobile ── */
+@media (max-width: 767px) {
+  .desktop-nav { display: none !important; }
 }
