@@ -3,7 +3,7 @@
 import { useState, useEffect, useCallback } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { Menu, X, Sun, Moon, Box, Zap, Diamond, BookOpen, FileText, User, Mail, ChevronRight } from "lucide-react"
+import { Menu, X, Sun, Moon, Home, Box, Zap, Diamond, BookOpen, FileText, User, Mail, ChevronRight } from "lucide-react"
 import { useTheme } from "@/providers/ThemeProvider"
 
 const navLinks = [
@@ -87,22 +87,30 @@ export function Header() {
       </header>
 
       {/* ─── MOBILE HANGING CONTROLS ─── */}
-      <div className="mobile-nav fixed right-0 top-1/2 -translate-y-1/2 z-[60] flex flex-col items-center gap-1.5">
+      <div className="mobile-nav fixed right-0 top-1/2 -translate-y-1/2 z-[60] flex flex-col items-center gap-1">
+        <Link
+          href="/"
+          className="w-10 h-10 flex items-center justify-center bg-inverse text-inverse border border-primary/20 shadow-lg"
+          style={{ transition: "background-color 0.15s ease, border-color 0.15s ease" }}
+          aria-label="Home"
+        >
+          <Home size={15} />
+        </Link>
         <button
           onClick={() => setMenuOpen(!menuOpen)}
-          className="w-10 h-10 flex items-center justify-center bg-inverse text-inverse shadow-lg hover:bg-[#ccc]"
-          style={{ transition: "background-color 0.15s ease" }}
+          className="w-10 h-10 flex items-center justify-center bg-inverse text-inverse border border-primary/20 shadow-lg"
+          style={{ transition: "background-color 0.15s ease, border-color 0.15s ease" }}
           aria-label={menuOpen ? "Close menu" : "Open menu"}
         >
-          {menuOpen ? <X size={16} /> : <Menu size={16} />}
+          {menuOpen ? <X size={15} /> : <Menu size={15} />}
         </button>
         <button
           onClick={toggle}
-          className="w-10 h-10 flex items-center justify-center bg-inverse/10 text-primary/70 shadow-lg hover:bg-inverse/20"
-          style={{ transition: "background-color 0.15s ease" }}
+          className="w-10 h-10 flex items-center justify-center bg-inverse text-inverse border border-primary/20 shadow-lg"
+          style={{ transition: "background-color 0.15s ease, border-color 0.15s ease" }}
           aria-label="Toggle theme"
         >
-          {theme === "dark" ? <Sun size={14} /> : <Moon size={14} />}
+          {theme === "dark" ? <Moon size={14} /> : <Sun size={14} />}
         </button>
       </div>
 
