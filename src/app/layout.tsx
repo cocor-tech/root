@@ -1,13 +1,14 @@
 import type { Metadata } from "next"
-import { Inter, JetBrains_Mono } from "next/font/google"
+import { Roboto, JetBrains_Mono } from "next/font/google"
 import Script from "next/script"
 import { ThemeProvider } from "@/providers/ThemeProvider"
 import { organizationSchema, websiteSchema } from "@/lib/jsonld"
 import "./globals.css"
 
-const inter = Inter({
-  variable: "--font-inter",
+const roboto = Roboto({
+  variable: "--font-roboto",
   subsets: ["latin"],
+  weight: ["300", "400", "500", "700", "900"],
   display: "swap",
 })
 
@@ -67,7 +68,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${jetbrainsMono.variable}`}
+      className={`${roboto.variable} ${jetbrainsMono.variable}`}
     >
       <head>
         <meta name="msvalidate.01" content="0CEC0CF1C6E7E072135890257E62E760" />
