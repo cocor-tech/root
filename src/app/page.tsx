@@ -115,11 +115,18 @@ export default function Home() {
           </div>
 
           <p
-            className={`text-primary/40 text-sm md:text-base max-w-lg leading-relaxed mt-8 md:mt-10 mx-auto md:mx-0 transition-all duration-700 ${
+            className={`text-primary/60 text-sm md:text-base max-w-lg leading-relaxed mt-8 md:mt-10 mx-auto md:mx-0 transition-all duration-700 ${
               done ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
             }`}
           >
-            We operate at the intersection of software engineering, product development, and digital asset investing. We design and ship products, build enterprise grade products for clients, and strategically acquire digital assets — all under one roof.
+            &ldquo;Sitting right at the sweet spot of Tech!&rdquo;
+          </p>
+          <p
+            className={`text-primary/40 text-sm md:text-base max-w-lg leading-relaxed mt-3 mx-auto md:mx-0 transition-all duration-700 delay-150 ${
+              done ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+            }`}
+          >
+            We build and launch our own successful products, engineer heavy-duty software that scales for our clients, and make smart, high-return moves in the digital market.
           </p>
 
           <div
