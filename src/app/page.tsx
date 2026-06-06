@@ -122,7 +122,7 @@ export default function Home() {
             &ldquo;Sitting right at the sweet spot of Tech!&rdquo;
           </p>
           <p
-            className={`text-primary/40 text-sm md:text-base max-w-lg leading-relaxed mt-3 mx-auto md:mx-0 transition-all duration-700 delay-150 ${
+            className={`text-primary/40 text-xs md:text-sm max-w-lg leading-relaxed mt-3 mx-auto md:mx-0 transition-all duration-700 delay-150 ${
               done ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
             }`}
           >
