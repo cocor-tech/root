@@ -115,7 +115,7 @@ export default function Home() {
           </div>
 
           <p
-            className={`text-primary/60 text-sm md:text-base max-w-lg leading-relaxed mt-8 md:mt-10 mx-auto md:mx-0 transition-all duration-700 ${
+            className={`text-primary text-base md:text-lg font-semibold italic leading-relaxed mt-8 md:mt-10 mx-auto md:mx-0 transition-all duration-700 ${
               done ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
             }`}
           >
